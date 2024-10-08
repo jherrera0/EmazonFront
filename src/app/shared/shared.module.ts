@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { DividerFooterPageComponent } from './atoms/divider-footer-page/divider-footer-page.component';
 import { HambugerButtonComponent } from './atoms/hambuger-button/hambuger-button.component';
@@ -10,6 +11,7 @@ import { HeaderPageComponent } from './organisms/header-page/header-page.compone
 import { InputErrorHandlerComponent } from './atoms/input-error-handler/input-error-handler.component';
 import { ButtonComponent } from './atoms/button/button.component';
 import { NavigationPanelComponent } from './organisms/navigation-panel/navigation-panel.component';
+import { ToastComponent } from './atoms/toast/toast.component';
 
 
 @NgModule({
@@ -22,8 +24,10 @@ import { NavigationPanelComponent } from './organisms/navigation-panel/navigatio
     HeaderPageComponent,
     InputErrorHandlerComponent,
     ButtonComponent,
-    NavigationPanelComponent],
+    NavigationPanelComponent,
+    ToastComponent],
   imports: [
+    HttpClientModule,
     CommonModule
   ],
   exports: [DividerFooterPageComponent,
@@ -35,7 +39,8 @@ import { NavigationPanelComponent } from './organisms/navigation-panel/navigatio
     HeaderPageComponent,
     InputErrorHandlerComponent,
     ButtonComponent,
-    NavigationPanelComponent
+    NavigationPanelComponent,
+    ToastComponent
   ]
 
 })

@@ -1,5 +1,10 @@
+import { __param } from 'tslib';
+import { Toast } from './../../../../core/service/toast.service';
+import { CategoryRequest } from './../../../../core/model/category-request.model';
+import { CategoryService } from './../../service/category.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastService } from 'src/app/core/service/toast.service';
 
 @Component({
   selector: 'app-create-category',
@@ -9,13 +14,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CreateCategoryComponent implements OnInit {
   public createCategoryForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+   private CategoryService: CategoryService,
+   private toastService: ToastService) {
     this.createCategoryForm = this.formBuilder.group({
       categoryName: [
         '',
         [
           Validators.required,
-          Validators.minLength(3),
+          Validators.minLength(1),
           Validators.pattern(/^[^'";<>\\-]+$/),
         ],
       ],
@@ -23,7 +30,7 @@ export class CreateCategoryComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(3),
+          Validators.minLength(1),
           Validators.pattern(/^[^'";<>\\-]+$/),
         ],
       ],
@@ -58,7 +65,15 @@ export class CreateCategoryComponent implements OnInit {
   }
 
   createCategory(){
-    console.log("Create Category");
+    var category: CategoryRequest = {
+      name: this.createCategoryForm.value.categoryName,
+      description: this.createCategoryForm.value.categoryDescription
+    };
+
+    this.CategoryService.saveCategory(category).subscribe({
+      next: () => this.toastService.showToast('Category saved successfully!','success'),
+      error: () => this.toastService.showToast(this.CategoryService.getErrorMessage(), 'error')
+    });
   }
 
   get categoryNameError(): string {

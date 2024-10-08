@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  stokApi: 'http://localhost:8082',
+  apiKey: 'DEV_API_KEY'
 };
 
 /*
