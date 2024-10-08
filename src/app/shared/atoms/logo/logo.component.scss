@@ -1,0 +1,28 @@
+@use'/src/styles/stylesReference.scss' as *;
+
+.logo{
+  margin-top: 0.625rem;
+  color: $white ;
+  &--small{
+    font-size: 3.4rem;
+  }
+  &--medium{
+    font-size: 7.4rem;
+  }
+  &--large{
+    font-size: 10.0rem;
+  }
+}
+
+.circle {
+  width: 2rem;
+  height: 2rem;
+  border: 0.2rem solid $white;
+  margin-right: 0.625rem;
+  border-radius: 50%;
+}
+
+.logo-container{
+  display:flex;
+  flex-direction: row;
+}

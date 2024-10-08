@@ -1,0 +1,33 @@
+@use '/src/styles/stylesReference.scss' as *;
+.container{
+    padding: 1.5rem 1.5rem;
+    margin: 1.2rem 1.2rem;
+}
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.infoInput{
+  font-size: 1.6rem;
+}
+
+.principal-title{
+    font-size: 2.9rem;
+    font-weight: 600;
+    line-height: 1.24;
+    margin-bottom: 1.5rem;
+
+    &__highlight {
+        color: $purple;
+        font-weight: bold;
+    }
+
+    @include desktop{
+        font-size: 4.4rem;
+        font-weight: 500;
+        line-height: 1;
+    }
+}

@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="principal-title poppins-regular">
+    Create a new <span class="principal-title__highlight">category</span>
+  </h1>
+  <form
+    [formGroup]="createCategoryForm"
+    (ngSubmit)="createCategory()"
+    class="form"
+  >
+    <div class="container-inputs">
+      <label class="infoInput poppins-regular">Category Name:</label>
+      <app-input-error-handler
+        formControlName="categoryName"
+        [errorMessage]="categoryNameError"
+      ></app-input-error-handler>
+      <label class="infoInput poppins-regular">Category Description:</label>
+      <app-input-error-handler
+        formControlName="categoryDescription"
+        [errorMessage]="categoryDescriptionError"
+      ></app-input-error-handler>
+    </div>
+    <app-button>Create Category</app-button>
+  </form>
+</div>
