@@ -1,7 +1,7 @@
 @use '/src/styles/stylesReference.scss' as *;
 
 .button{
-    padding: 0.6rem 4rem;
+ padding: 4% 21%;
     background-color: $purple;
     color: $white;
     border-radius: 0.4rem;
@@ -10,8 +10,8 @@
     cursor: pointer;
 
     @include desktop{
-        padding: 1rem 4rem;
-        font-size: 2rem;
+        padding: 10% 4%;
+        font-size: 20%;
     }
 
     &:hover{
