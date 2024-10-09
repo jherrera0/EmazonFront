@@ -19,6 +19,6 @@
         [errorMessage]="categoryDescriptionError"
       ></app-input-error-handler>
     </div>
-    <app-button>Create Category</app-button>
+    <app-button [disabled]="createCategoryForm.invalid">Create Category</app-button>
   </form>
 </div>

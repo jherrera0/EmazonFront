@@ -1,10 +1,9 @@
 import { __param } from 'tslib';
-import { Toast } from './../../../../core/service/toast.service';
 import { CategoryRequest } from './../../../../core/model/category-request.model';
 import { CategoryService } from './../../service/category.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ToastService } from 'src/app/core/service/toast.service';
+import { ToastService } from '@service/toast.service';
 
 @Component({
   selector: 'app-create-category',
@@ -22,7 +21,7 @@ export class CreateCategoryComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(1),
+          Validators.minLength(3),
           Validators.pattern(/^[^'";<>\\-]+$/),
         ],
       ],
@@ -30,11 +29,13 @@ export class CreateCategoryComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(1),
+          Validators.minLength(3),
           Validators.pattern(/^[^'";<>\\-]+$/),
         ],
       ],
     });
+
+
   }
 
   private errorMessages: {
