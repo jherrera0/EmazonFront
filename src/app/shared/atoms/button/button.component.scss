@@ -1,0 +1,22 @@
+@use '/src/styles/stylesReference.scss' as *;
+
+.button{
+ padding: 4% 21%;
+    background-color: $purple;
+    color: $white;
+    border-radius: 0.4rem;
+    outline: none;
+    border: $border;
+    cursor: pointer;
+
+    @include desktop{
+        padding: 10% 4%;
+        font-size: 20%;
+    }
+
+    &:disabled{
+        background-color: $disabled;
+        cursor: not-allowed;
+    }
+
+}
