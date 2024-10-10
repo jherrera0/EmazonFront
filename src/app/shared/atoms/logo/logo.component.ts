@@ -10,6 +10,7 @@ export class LogoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // empty because we don't need to do anything here
   }
 
 }
