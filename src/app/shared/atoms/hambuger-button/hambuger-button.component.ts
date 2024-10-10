@@ -15,5 +15,4 @@ export class HambugerButtonComponent implements OnInit {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
-
 }

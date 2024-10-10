@@ -12,12 +12,12 @@
       <app-input-error-handler
         formControlName="categoryName"
         [errorMessage]="categoryNameError"
-      ></app-input-error-handler>
+        ></app-input-error-handler>
       <label class="infoInput poppins-regular">Category Description:</label>
       <app-input-error-handler
         formControlName="categoryDescription"
         [errorMessage]="categoryDescriptionError"
-      ></app-input-error-handler>
+        ></app-input-error-handler>
     </div>
     <app-button [disabled]="createCategoryForm.invalid">Create Category</app-button>
   </form>

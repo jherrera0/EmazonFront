@@ -78,14 +78,19 @@ export class CreateCategoryComponent implements OnInit {
   }
 
   get categoryNameError(): string {
-    return this.getErrorMessage(this.categoryName, 'Category Name');
+    const control = this.createCategoryForm.get('categoryName');
+    if (control?.hasError('required')||control?.hasError('minlength')||control?.hasError('pattern')) {
+      return 'Required a valid category name';
+    }
+    return '';
   }
 
   get categoryDescriptionError(): string {
-    return this.getErrorMessage(
-      this.categoryDescription,
-      'Category Description'
-    );
+    const control = this.createCategoryForm.get('categoryDescription');
+    if (control?.hasError('required')||control?.hasError('minlength')||control?.hasError('pattern')) {
+      return 'Required a valid category description';
+    }
+    return '';
   }
   ngOnInit(): void {
   }
