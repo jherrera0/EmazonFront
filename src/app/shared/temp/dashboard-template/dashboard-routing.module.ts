@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardTemplateComponent } from './dashboard-template.component';
 import { CreateCategoryComponent } from 'src/app/features/categories/pages/create-category/create-category.component';

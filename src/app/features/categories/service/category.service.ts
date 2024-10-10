@@ -3,17 +3,16 @@ import { HttpClient ,  HttpHeaders, HttpErrorResponse} from '@angular/common/htt
 import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CategoryRequest } from 'src/app/core/model/category-request.model';
-import { __param } from 'tslib';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
-  private CategoryUrl = environment.stokApi;
-  private token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQURNSU4iLCJJZCI6MSwic3ViIjoiam9zZUBnbWFpbC5jb20iLCJpYXQiOjE3Mjg0MjgxMTYsImV4cCI6MTcyODQyOTkxNn0.KjRZLeQ5btj_HX8Ba4uznJYUCa0VZlI0_pPcjDGryh4";
+  private readonly CategoryUrl = environment.stokApi;
+  private readonly token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQURNSU4iLCJJZCI6MSwic3ViIjoiam9zZUBnbWFpbC5jb20iLCJpYXQiOjE3Mjg0MjgxMTYsImV4cCI6MTcyODQyOTkxNn0.KjRZLeQ5btj_HX8Ba4uznJYUCa0VZlI0_pPcjDGryh4";
   private errorMessage: string = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private readonly http: HttpClient) { }
   saveCategory(category: CategoryRequest): Observable<void> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.token}`,

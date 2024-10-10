@@ -11,7 +11,7 @@ export class ToastComponent implements OnInit {
   isVisible: boolean = false;
   type: 'success' | 'error' | 'warning' = 'success';
 
-  constructor(private toastService: ToastService) { }
+  constructor(private readonly toastService: ToastService) { }
 
   ngOnInit(): void {
     this.toastService.toastState.subscribe((toast: Toast) => {

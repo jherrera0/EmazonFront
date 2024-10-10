@@ -1,4 +1,3 @@
-import { __param } from 'tslib';
 import { CategoryRequest } from './../../../../core/model/category-request.model';
 import { CategoryService } from './../../service/category.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,9 +12,9 @@ import { ToastService } from '@service/toast.service';
 export class CreateCategoryComponent implements OnInit {
   public createCategoryForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,
-   private CategoryService: CategoryService,
-   private toastService: ToastService) {
+  constructor(private readonly formBuilder: FormBuilder,
+   private readonly CategoryService: CategoryService,
+   private readonly toastService: ToastService) {
     this.createCategoryForm = this.formBuilder.group({
       categoryName: [
         '',
@@ -38,7 +37,7 @@ export class CreateCategoryComponent implements OnInit {
 
   }
 
-  private errorMessages: {
+  private readonly errorMessages: {
     [key: string]: (fieldName: string, error?: any) => string;
   } = {
     required: (fieldName: string) => `${fieldName} is required.`,
@@ -66,7 +65,7 @@ export class CreateCategoryComponent implements OnInit {
   }
 
   createCategory(){
-    var category: CategoryRequest = {
+    let category: CategoryRequest = {
       name: this.createCategoryForm.value.categoryName,
       description: this.createCategoryForm.value.categoryDescription
     };
@@ -93,6 +92,7 @@ export class CreateCategoryComponent implements OnInit {
     return '';
   }
   ngOnInit(): void {
+    // empty because we don't need to do anything here
   }
 
 }

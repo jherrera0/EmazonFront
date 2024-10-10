@@ -8,17 +8,20 @@
     class="form"
   >
     <div class="container-inputs">
-      <label class="infoInput poppins-regular">Category Name:</label>
+      <label for="categoryName" class="infoInput poppins-regular">Category Name:</label>
       <app-input-error-handler
+        id="categoryName"
         formControlName="categoryName"
         [errorMessage]="categoryNameError"
-        ></app-input-error-handler>
-      <label class="infoInput poppins-regular">Category Description:</label>
+      ></app-input-error-handler>
+      <label for="categoryDescription" class="infoInput poppins-regular">Category Description:</label>
       <app-input-error-handler
+        id="categoryDescription"
         formControlName="categoryDescription"
         [errorMessage]="categoryDescriptionError"
-        ></app-input-error-handler>
+      ></app-input-error-handler>
     </div>
+
     <app-button [disabled]="createCategoryForm.invalid">Create Category</app-button>
   </form>
 </div>
