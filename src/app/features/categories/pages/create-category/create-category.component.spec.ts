@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { of, throwError } from 'rxjs';
 import { CreateCategoryComponent } from './create-category.component';
-import { CategoryService } from './../../service/category.service';
+import { CategoryService } from '../../../../core/service/category.service';
 import { ToastService } from '@service/toast.service';
 import { HttpResponse } from '@angular/common/http';
 

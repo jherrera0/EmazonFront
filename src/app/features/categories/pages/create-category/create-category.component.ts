@@ -1,5 +1,5 @@
 import { CategoryRequest } from './../../../../core/model/category-request.model';
-import { CategoryService } from './../../service/category.service';
+import { CategoryService } from '../../../../core/service/category.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from '@service/toast.service';
