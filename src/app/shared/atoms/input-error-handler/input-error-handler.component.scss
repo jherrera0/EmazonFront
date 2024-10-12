@@ -4,9 +4,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 4%;
+  height: 10vh;
   gap: 1%;
-  margin-bottom: 1rem;
+  margin-bottom: 1%;
 }
 
 .input {
@@ -23,6 +23,6 @@
 }
 
 .error-message {
-  color: red;
+  color: $error;
   font-size: 1.3rem;
 }

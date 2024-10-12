@@ -21,7 +21,7 @@ export class CreateCategoryComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(3),
-          Validators.pattern(/^[^'";<>\\-]+$/),
+          Validators.pattern(/^[^@#$%^&*()_+={}\[\]|\\:;\"'<>,.?/~`¡¿!]+$/)
         ],
       ],
       categoryDescription: [
@@ -29,7 +29,8 @@ export class CreateCategoryComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(3),
-          Validators.pattern(/^[^'";<>\\-]+$/),
+          Validators.pattern(/^[^@#$%^&*()_+={}\[\]|\\:;\"'<>,.?/~`¡¿!]+$/)
+
         ],
       ],
     });

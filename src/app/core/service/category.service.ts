@@ -3,7 +3,6 @@ import { HttpClient ,  HttpHeaders, HttpErrorResponse, HttpParams} from '@angula
 import { catchError, Observable , throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CategoryRequest } from 'src/app/core/model/category-request.model';
-import { PageCustom } from 'src/app/core/model/page-response.models';
 import { CategoryResponse, PaginationCategory } from 'src/app/core/model/category-response';
 
 @Injectable({
@@ -11,7 +10,7 @@ import { CategoryResponse, PaginationCategory } from 'src/app/core/model/categor
 })
 export class CategoryService {
   private readonly CategoryUrl = environment.stokApi;
-  private readonly token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQURNSU4iLCJJZCI6MSwic3ViIjoiam9zZUBnbWFpbC5jb20iLCJpYXQiOjE3Mjg2MjA1NjQsImV4cCI6MTcyODYyMjM2NH0.4e7sN_H07BKHZ8p9S5krpkY7_LOi-aT8bZvuZwmYM9Q";
+  private readonly token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQURNSU4iLCJJZCI6MSwic3ViIjoiam9zZUBnbWFpbC5jb20iLCJpYXQiOjE3Mjg3NzUwMDQsImV4cCI6MTcyODc3NjgwNH0.jwfnPVFt1QNPpg_MODXMCskohyw1LjYAlVUlkLmuMxY";
   private errorMessage: string = '';
 
   constructor(private readonly http: HttpClient) { }

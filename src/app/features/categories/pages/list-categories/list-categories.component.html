@@ -1,22 +1,30 @@
 <div class="table-page">
-  <h1>Categories</h1>
+  <div class = "title">
+    <h1>Categories</h1>
+  </div>
   <div class="controls">
-    <label for="pageSize">Page Size:</label>
-    <input id="pageSize" type="number" [(ngModel)]="pageSize" (change)="onPageSizeChange($event)" min="1" />
+    <label class= "labelPageSize"for="pageSize">Page Size:</label>
+    <select class="pageSize" (change)="onPageSizeChange($event)">
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="15">15</option>
+    </select>
 
-    <label for="sortDirection">Sort Direction:</label>
-    <select id="sortDirection" (change)="onSortDirectionChange($event)">
+    <label class = "labelSortDirection" for="sortDirection">Sort Direction:</label>
+    <select class="sortDirection" (change)="onSortDirectionChange($event)">
       <option value="asc">Ascending</option>
       <option value="desc">Descending</option>
     </select>
   </div>
   <app-table [pageData]="categoriesPage" [headers]="headers" (onPageChange)="onPageChange($event)"></app-table>
   <div class="pagination-controls">
-    <app-button (click)="previousPage()" [disabled]="categoriesPage.currentPage === 0"><-</app-button>
-    <button *ngFor="let page of pages" (click)="goToPage(page)" [class.active]="page === categoriesPage.currentPage + 1">
-      {{ page }}
-    </button>
-    <app-button (click)="nextPage()" [disabled]="categoriesPage.currentPage === categoriesPage.totalPages - 1">-></app-button>
+    <app-button (click)="previousPage()" [disabled]="categoriesPage.currentPage === 0"><<</app-button>
+    <div class="listOfPage">
+      <button class="pages" *ngFor="let page of pages" (click)="goToPage(page)" [class.active]="page === categoriesPage.currentPage + 1">
+        {{ page }}
+      </button>
+    </div>
+    <app-button (click)="nextPage()" [disabled]="categoriesPage.currentPage === categoriesPage.totalPages - 1">>></app-button>
   </div>
 </div>
 

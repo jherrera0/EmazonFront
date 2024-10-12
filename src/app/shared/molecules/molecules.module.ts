@@ -1,23 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TableRowComponent } from './table-row/table-row.component';
-import { TableHeaderComponent } from './table-header/table-header.component';
 import { AtomsModule } from '@atoms/atoms.module';
+import { TableComponent } from './table/table.component';
 
 
 
 @NgModule({
   declarations: [
-    TableRowComponent,
-    TableHeaderComponent
+    TableComponent
   ],
   imports: [
     CommonModule,
     AtomsModule
   ],
   exports: [
-    TableRowComponent,
-    TableHeaderComponent
+    TableComponent
   ]
 })
 export class MoleculesModule { }

@@ -1,6 +1,5 @@
 import { CategoryService } from '@service/category.service';
 import { Component, OnInit } from '@angular/core';
-import { PageCustom } from 'src/app/core/model/page-response.models';
 import { CategoryResponse, PaginationCategory } from 'src/app/core/model/category-response';
 
 @Component({
@@ -65,18 +64,22 @@ export class ListCategoriesComponent implements OnInit {
     this.CategoryService.getCategories(pageNumber,pageSize,sortDirection).subscribe((data) => {
       if(data != undefined){
         this.categoriesPage = data;
+        this.loadPagination();
       }
     });
-    this.loadPagination();
+
   }
+
   onPageChange(pageNumber: number) {
     this.loadPage(pageNumber,this.pageSize,this.sortDirection);
   }
+
   onPageSizeChange(event: Event) {
     const newSize = (event.target as HTMLInputElement).value;
     this.pageSize = Number(newSize);
     this.loadPage(0, this.pageSize, this.sortDirection);
   }
+
   onSortDirectionChange(event: Event) {
     const newDirection = (event.target as HTMLSelectElement).value;
     this.sortDirection = newDirection;
