@@ -24,12 +24,6 @@ export class CategoryService {
     return this.http.get<PaginationCategory<CategoryResponse[]>>(`${this.CategoryUrl}/category/all`, { headers, params });
    }
 
-   private getErrorget(error: any): Observable<never> {
-    console.error('An error occurred:', error);
-    return throwError(() => new Error('Something went wrong; please try again later.'));
-  }
-
-
   saveCategory(category: CategoryRequest): Observable<void> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.token}`,

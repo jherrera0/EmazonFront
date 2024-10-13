@@ -12,6 +12,7 @@ export class TableComponent implements OnInit {
   @Input() headers: string[] = [];
   @Output() onPageChange = new EventEmitter<number>();
 
+
   constructor() { }
   ngOnInit() {
     //empty because we don't need to do anything here

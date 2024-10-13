@@ -146,6 +146,14 @@ describe('CreateCategoryComponent', () => {
     expect(message).toBe('Category Name must be at least 3 characters.');
   });
 
+  it('should return correct error message for maxlength error', () => {
+    const control = new FormControl();
+    control.setErrors({ maxlength: { requiredLength: 50, actualLength: 65 } });
+    control.markAsTouched();
+    const message = component.getErrorMessage(control, 'Category Name');
+    expect(message).toBe('Category Name must be at most 50 characters.');
+  });
+
   it('should return correct error message for pattern error', () => {
     const control = new FormControl();
     control.setErrors({ pattern: true });
