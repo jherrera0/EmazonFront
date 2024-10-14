@@ -22,7 +22,7 @@ export class BrandService {
     return this.http.post<void>(`${this.CategoryUrl}/brand/save`, brand, { headers }).pipe(catchError(this.getError.bind(this)));
   }
 
-  getBrand(page: number, size: number, sortDirection: string): Observable<PaginationBrand<BrandResponse[]>> {
+  getBrands(page: number, size: number, sortDirection: string): Observable<PaginationBrand<BrandResponse[]>> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.token}`,
       'Content-Type': 'application/json',
