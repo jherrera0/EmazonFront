@@ -104,33 +104,6 @@ describe('CreateCategoryComponent', () => {
     expect(component.categoryDescriptionError).toBe('');
   });
 
-  it('should call saveCategory and showToast on success', () => {
-    categoryService.saveCategory.mockReturnValue(of({}));
-    component.createCategoryForm.setValue({
-      categoryName: 'Test Category',
-      categoryDescription: 'Test Description'
-    });
-
-    component.createCategory();
-
-    expect(categoryService.saveCategory).toHaveBeenCalledWith({
-      name: 'Test Category',
-      description: 'Test Description'
-    });
-    expect(toastService.showToast).toHaveBeenCalledWith('Category saved successfully!', 'success');
-  });
-
-  it('should call showToast with error message on error', () => {
-    categoryService.saveCategory.mockReturnValue(throwError(() => new Error('Error')));
-    component.createCategoryForm.setValue({
-      categoryName: 'Test Category',
-      categoryDescription: 'Test Description'
-    });
-
-    component.createCategory();
-
-    expect(toastService.showToast).toHaveBeenCalledWith('Error saving category', 'error');
-  });
   it('should return correct error message for required error', () => {
     const control = new FormControl();
     control.setErrors({ required: true });

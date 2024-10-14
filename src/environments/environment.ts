@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   stokApi: 'http://localhost:8082',
-  apiKey: 'DEV_API_KEY'
+  apiKey: 'DEV_API_KEY',
+  token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQURNSU4iLCJJZCI6MSwic3ViIjoiam9zZUBnbWFpbC5jb20iLCJpYXQiOjE3Mjg5MzcxOTUsImV4cCI6MTcyODkzODk5NX0.pWJUP47sB2XM1CbqWReq3O_NFdmRosllA5IiwVlnOLM'
 };
 
 /*

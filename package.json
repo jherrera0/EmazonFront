@@ -43,10 +43,11 @@
     ],
     "globalSetup": "jest-preset-angular/global-setup",
     "moduleNameMapper": {
+      "^@model/(.*)$": "<rootDir>/src/app/shared/model/$1",
       "^@atoms/(.*)$": "<rootDir>/src/app/shared/atoms/$1",
       "^@organisms/(.*)$": "<rootDir>/src/app/shared/organisms/$1",
       "^@service/(.*)$": "<rootDir>/src/app/core/service/$1",
-      "^src/environments/(.*)$": "<rootDir>/src/environments/$1"
+      "^@environments/(.*)$": "<rootDir>/src/environments/$1"
     }
   }
 }
