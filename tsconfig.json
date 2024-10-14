@@ -8,7 +8,7 @@
           "@organisms/*": ["src/app/shared/organisms/*"],
           "@templates/*": ["src/app/shared/temp/*"],
           "@service/*": ["src/app/core/service/*"],
-          "@models/*": ["src/app/core/models/*"],
+          "@model/*": ["src/app/core/model/*"],
           "@environments/*": ["src/environments/*"],
       },
       "forceConsistentCasingInFileNames": true,

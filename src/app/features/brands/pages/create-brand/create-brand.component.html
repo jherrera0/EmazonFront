@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 class="principal-title poppins-regular">
+    Create a new <span class="principal-title__highlight">Brand</span>
+  </h1>
+  <form
+    [formGroup]="createBrandForm"
+    (ngSubmit)="createBrand()"
+    class="form"
+  >
+
+      <label for="brandName" class="infoInput poppins-regular">Brand Name:</label>
+      <div class="container-inputs">
+        <app-input-error-handler
+          id="categoryName"
+          formControlName="brandName"
+          [errorMessage]="brandNameError"
+        ></app-input-error-handler>
+      </div>
+      <label for="brandDescription" class="infoInput poppins-regular">Brand Description:</label>
+      <div class="container-inputs">
+        <app-input-error-handler
+          id="brandDescription"
+          formControlName="brandDescription"
+          [errorMessage]="brandDescriptionError"
+        ></app-input-error-handler>
+      </div>
+      <div class= "container-button">
+      <app-button [disabled]="createBrandForm.invalid">Create Brand</app-button>
+      </div>
+  </form>
+</div>

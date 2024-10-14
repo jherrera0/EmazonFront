@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient ,  HttpHeaders, HttpErrorResponse, HttpParams} from '@angular/common/http';
 import { catchError, Observable , throwError } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from '@environments/environment';
 import { CategoryRequest } from 'src/app/core/model/category-request.model';
 import { CategoryResponse, PaginationCategory } from 'src/app/core/model/category-response';
 
@@ -10,7 +10,7 @@ import { CategoryResponse, PaginationCategory } from 'src/app/core/model/categor
 })
 export class CategoryService {
   private readonly CategoryUrl = environment.stokApi;
-  private readonly token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQURNSU4iLCJJZCI6MSwic3ViIjoiam9zZUBnbWFpbC5jb20iLCJpYXQiOjE3Mjg3NzUwMDQsImV4cCI6MTcyODc3NjgwNH0.jwfnPVFt1QNPpg_MODXMCskohyw1LjYAlVUlkLmuMxY";
+  private readonly token = environment.token;
   private errorMessage: string = '';
 
   constructor(private readonly http: HttpClient) { }
@@ -34,7 +34,6 @@ export class CategoryService {
   }
 
   private getError(error: HttpErrorResponse) {
-    let errorMessage = '';
     const status = error.status;
     if (status === 401 || status === 403) {
     this.errorMessage = 'You are not authorized to perform this action';
