@@ -1,5 +1,5 @@
 import { CategoryRequest } from './../../../../core/model/category-request.model';
-import { CategoryService } from './../../service/category.service';
+import { CategoryService } from '../../../../core/service/category.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from '@service/toast.service';
@@ -21,7 +21,8 @@ export class CreateCategoryComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(3),
-          Validators.pattern(/^[^'";<>\\-]+$/),
+          Validators.maxLength(50),
+          Validators.pattern(/^[^@#$%^&*()_+={}[\]|\\:;"'<>,.?/~`¡¿!]+$/)
         ],
       ],
       categoryDescription: [
@@ -29,7 +30,9 @@ export class CreateCategoryComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(3),
-          Validators.pattern(/^[^'";<>\\-]+$/),
+          Validators.maxLength(90),
+          Validators.pattern(/^[^@#$%^&*()_+={}[\]|\\:;"'<>,.?/~`¡¿!]+$/)
+
         ],
       ],
     });
@@ -43,6 +46,7 @@ export class CreateCategoryComponent implements OnInit {
     required: (fieldName: string) => `${fieldName} is required.`,
     minlength: (fieldName: string, error: any) =>
       `${fieldName} must be at least ${error.requiredLength} characters.`,
+    maxlength: (fieldName: string, error: any) => `${fieldName} must be at most ${error.requiredLength} characters.`,
     pattern: (fieldName: string) =>
       `${fieldName} contains forbidden characters.`,
   };
@@ -78,7 +82,7 @@ export class CreateCategoryComponent implements OnInit {
 
   get categoryNameError(): string {
     const control = this.createCategoryForm.get('categoryName');
-    if (control?.hasError('required')||control?.hasError('minlength')||control?.hasError('pattern')) {
+    if (control?.hasError('required')||control?.hasError('minlength')||control?.hasError('pattern')||control?.hasError('maxlength')) {
       return 'Required a valid category name';
     }
     return '';
@@ -86,7 +90,7 @@ export class CreateCategoryComponent implements OnInit {
 
   get categoryDescriptionError(): string {
     const control = this.createCategoryForm.get('categoryDescription');
-    if (control?.hasError('required')||control?.hasError('minlength')||control?.hasError('pattern')) {
+    if (control?.hasError('required')||control?.hasError('minlength')||control?.hasError('pattern')||control?.hasError('maxlength')) {
       return 'Required a valid category description';
     }
     return '';

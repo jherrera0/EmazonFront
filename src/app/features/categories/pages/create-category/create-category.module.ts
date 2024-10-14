@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { CategoryService } from '../../service/category.service';
+import { CategoryService } from '../../../../core/service/category.service';
+import { CreateCategoryComponent } from './create-category.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [CreateCategoryComponent],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   providers: [CategoryService]
 })

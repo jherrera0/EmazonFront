@@ -22,6 +22,10 @@ describe('CategoryService', () => {
     httpMock.verify();
   });
 
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+
   it('should perform POST request in saveCategory', () => {
     const category: CategoryRequest = { name: 'Test Category', description: 'Test Description' };
 
@@ -60,4 +64,22 @@ describe('CategoryService', () => {
     service['errorMessage'] = 'Test error message';
     expect(service.getErrorMessage()).toBe('Test error message');
   });
+
+  it('should fetch categories with pagination', () => {
+    const mockResponse = {
+      items: [{ id: 1, name: 'Category 1' }],
+      totalItems: 1,
+      totalPages: 1,
+      currentPage: 0
+    };
+
+    service.getCategories(0, 10, 'asc').subscribe(response => {
+      expect(response).toEqual(mockResponse);
+    });
+
+    const req = httpMock.expectOne(`${service['CategoryUrl']}/category/all?page=0&size=10&sortDirection=asc`);
+    expect(req.request.method).toBe('GET');
+    req.flush(mockResponse);
+  });
+
 });

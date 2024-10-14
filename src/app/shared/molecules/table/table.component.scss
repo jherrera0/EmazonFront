@@ -1,0 +1,52 @@
+@use '/src/styles/stylesReference.scss' as *;
+table {
+  width: fit-content;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1.5em;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  min-width: 90vw;
+}
+
+thead {
+  background-color: $purple;
+  color: $white;
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+th {
+  padding: 2.5% 2.5%;
+  border: 1px solid $border;
+  text-align: left;
+  box-sizing: border-box;
+  width: auto;
+}
+
+tbody.form {
+
+  tr {
+    border-bottom: 1px solid $border;
+  }
+  tr:nth-of-type(even) {
+    background-color: $bg_light_grey;
+  }
+
+  tr:hover {
+    background-color: $bg_light_grey;
+  }
+}
+
+app-table-cell {
+  display: table-cell;
+  padding: 5% 5%;
+  border: 1px solid $border;
+  text-align: center;
+}
+
+.wrapper {
+  overflow-y: scroll;
+  max-height: 60vh;
+  max-width: fit-content;
+}

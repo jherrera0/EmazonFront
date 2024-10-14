@@ -1,0 +1,16 @@
+<div class ="wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let header of headers" scope="col">{{ header }}</th>
+      </tr>
+    </thead>
+    <tbody class="form" *ngIf="pageData.items.length > 0">
+      <tr *ngFor="let item of pageData.items">
+        <app-table-cell [content]="item.id"></app-table-cell>
+        <app-table-cell [content]="item.name"></app-table-cell>
+        <app-table-cell [content]="item.description"></app-table-cell>
+      </tr>
+    </tbody>
+  </table>
+</div>
