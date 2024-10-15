@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TableComponent } from './table.component';
-import { PaginationCategory, CategoryResponse } from 'src/app/core/model/category-response';
 import { By } from '@angular/platform-browser';
 
 describe('TableComponent', () => {

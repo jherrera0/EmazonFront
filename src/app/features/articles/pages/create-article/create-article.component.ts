@@ -15,15 +15,24 @@ import { CategoryResponse, PaginationCategory } from '@model/category-response';
 })
 export class CreateArticleComponent implements OnInit {
   public createArticleForm: FormGroup;
-  public brands!: PaginationBrand<BrandResponse[]>;
-  public categories!: PaginationCategory<CategoryResponse[]>;
+  public brands: PaginationBrand<BrandResponse[]> = {
+    items: [],
+    pageSize: 0,
+    totalPages: 0,
+    currentPage: 0
+  };
+  public categories: PaginationCategory<CategoryResponse[]> = {
+    items: [],
+    pageSize: 0,
+    totalPages: 0,
+    currentPage: 0
+  };
   brandSelected: number = 0;
   categoriesSelected: number[] = [];
 
   ngOnInit(): void {
     this.getBrands();
     this.getCategories();
-    console.log(this.brands);
   }
 
   constructor(private readonly formBuilder: FormBuilder,
@@ -62,7 +71,6 @@ export class CreateArticleComponent implements OnInit {
         [
           Validators.required,
           Validators.min(1),
-          //Validators.pattern(/^[0-9]*$/)
           Validators.pattern(/^\d+$/)
         ]
       ],
@@ -78,11 +86,10 @@ export class CreateArticleComponent implements OnInit {
       categoriesId: this.categoriesSelected,
       stock: this.createArticleForm.value.articleStock
     }
-    console.log(article);
-    // this.articleService.saveArticle(article).subscribe({
-    //   next: () => { this.toastService.showToast('Article saved successfully', 'success'); },
-    //   error: () => { this.toastService.showToast(this.articleService.getErrorMessage(), 'error'); },
-    // });
+     this.articleService.saveArticle(article).subscribe({
+      next: () => { this.toastService.showToast('Article saved successfully', 'success'); },
+      error: () => { this.toastService.showToast(this.articleService.getErrorMessage(), 'error'); },
+    });
   }
 
   getBrands(page:number = 0, size:number = 1000, sortDirection:string = 'asc'){
