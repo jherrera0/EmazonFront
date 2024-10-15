@@ -1,7 +1,8 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
 import { BrandRequest } from '@model/brand-request.model';
+import { BrandResponse, PaginationBrand } from '@model/brand-response.model';
 import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
@@ -19,6 +20,15 @@ export class BrandService {
       'Content-Type': 'application/json',
     });
     return this.http.post<void>(`${this.CategoryUrl}/brand/save`, brand, { headers }).pipe(catchError(this.getError.bind(this)));
+  }
+
+  getBrands(page: number, size: number, sortDirection: string): Observable<PaginationBrand<BrandResponse[]>> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.token}`,
+      'Content-Type': 'application/json',
+    });
+    const params = new HttpParams().set('page', page).set('size', size).set('sortDirection', sortDirection);
+    return this.http.get<PaginationBrand<BrandResponse[]>>(`${this.CategoryUrl}/brand/all`, { headers, params });
   }
 
   private getError(error: HttpErrorResponse) {

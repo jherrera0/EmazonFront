@@ -7,6 +7,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { CreateCategoryModule } from 'src/app/features/categories/pages/create-category/create-category.module';
 import { ListCategoriesModule } from 'src/app/features/categories/pages/list-categories/list-categories.module';
 import { CreateBrandModule } from 'src/app/features/brands/pages/create-brand/create-brand.module';
+import { ListBrandsModule } from 'src/app/features/brands/pages/list-brands/list-brands.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { CreateBrandModule } from 'src/app/features/brands/pages/create-brand/cr
     ReactiveFormsModule,
     CreateCategoryModule,
     ListCategoriesModule,
-    CreateBrandModule
+    CreateBrandModule,
+    ListBrandsModule
   ]
 })
 export class DashboardTemplateModule { }
