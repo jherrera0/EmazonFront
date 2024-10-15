@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { CategoryResponse } from '@model/category-response';
 
-interface Item {
+export interface Item {
   id: number;
   name: string;
   selected: boolean;
@@ -13,7 +13,7 @@ interface Item {
   styleUrls: ['./drop-down-list.component.scss']
 })
 export class DropDownListComponent implements OnInit {
-  @Input() listOfData!: CategoryResponse[];
+  @Input() listOfData: CategoryResponse[] = [{ id: 0, name: '', description: '' }, { id: 1, name: '', description: '' }];
   @Input() selectionLimit: number = 3;
   dropdownOpen = false;
   items: Item[] = [];
@@ -23,16 +23,17 @@ export class DropDownListComponent implements OnInit {
 
   toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
-    this.ids.emit(this.selectedsIds);
   }
 
   onItemSelect(item: Item) {
     if (item.selected) {
       this.selectedItems.push(item);
       this.selectedsIds.push(item.id);
+      this.ids.emit(this.selectedsIds);
     } else {
       this.selectedItems = this.selectedItems.filter(i => i.name !== item.name);
       this.selectedsIds = this.selectedsIds.filter(i => i !== item.id);
+      this.ids.emit(this.selectedsIds);
     }
   }
 
