@@ -10,6 +10,7 @@
 }
 
 .input {
+  width: 100%;
   @include input-base-styles;
   &--normal {
     padding: 1%

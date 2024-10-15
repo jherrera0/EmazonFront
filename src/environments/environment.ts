@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   stokApi: 'http://localhost:8082',
   apiKey: 'DEV_API_KEY',
-  token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQURNSU4iLCJJZCI6MSwic3ViIjoiam9zZUBnbWFpbC5jb20iLCJpYXQiOjE3Mjg5NDgxMDcsImV4cCI6MTcyODk0OTkwN30.38wlgdUW6Y0ZewZniEdwpYdWrmlGAyR_dcUi8A0brxw'
+  token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQURNSU4iLCJJZCI6MSwic3ViIjoiam9zZUBnbWFpbC5jb20iLCJpYXQiOjE3Mjg5ODA3NjAsImV4cCI6MTcyODk4MjU2MH0.wWpkKIzZZIjk5h4I5vzfJDdWZTLvuNkW8FBo4FFMIfc'
 };
 
 /*

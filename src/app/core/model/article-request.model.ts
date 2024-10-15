@@ -1,5 +1,4 @@
 export interface ArticleRequest {
-  id: number;
   name: string;
   description: string;
   brandId: number;
