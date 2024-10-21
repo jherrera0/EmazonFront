@@ -9,7 +9,7 @@
       <tr *ngFor="let item of pageData.items">
         <app-table-cell [content]="item.id"></app-table-cell>
         <app-table-cell [content]="item.name"></app-table-cell>
-        <app-table-cell [content]="item.description"></app-table-cell>
+        <app-table-cell class = "description"[content]="item.description" ></app-table-cell>
       </tr>
     </tbody>
   </table>

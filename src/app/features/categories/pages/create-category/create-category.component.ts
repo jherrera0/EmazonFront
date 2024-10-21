@@ -3,6 +3,7 @@ import { CategoryService } from '../../../../core/service/category.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from '@service/toast.service';
+import { ToastConst } from '@util/toastConst';
 
 @Component({
   selector: 'app-create-category',
@@ -75,8 +76,8 @@ export class CreateCategoryComponent implements OnInit {
     };
 
     this.CategoryService.saveCategory(category).subscribe({
-      next: () => this.toastService.showToast('Category saved successfully!','success'),
-      error: () => this.toastService.showToast(this.CategoryService.getErrorMessage(), 'error')
+      next: () => this.toastService.showToast('Category saved successfully!',ToastConst.SUCCESS),
+      error: () => this.toastService.showToast(this.CategoryService.getErrorMessage(), ToastConst.ERROR)
     });
   }
 

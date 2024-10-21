@@ -1,0 +1,15 @@
+<div class="multiselect-container">
+  <div class="selected-items" (click)="toggleDropdown()">
+    <span *ngFor="let item of selectedItems" class="selected-item">
+      {{ item.name }}
+    </span>
+    <span *ngIf="selectedItems.length === 0">Select items</span>
+  </div>
+
+  <div *ngIf="dropdownOpen" class="dropdown-list dropdown-scroll">
+      <label *ngFor="let item of items" class="dropdown-item">
+        <input type="checkbox" [(ngModel)]="item.selected" (change)="onItemSelect(item)" [disabled]="!item.selected && !canSelectMoreItems()" />
+        {{ item.name }}
+      </label>
+  </div>
+</div>

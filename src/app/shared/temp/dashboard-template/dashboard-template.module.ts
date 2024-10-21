@@ -8,6 +8,7 @@ import { CreateCategoryModule } from 'src/app/features/categories/pages/create-c
 import { ListCategoriesModule } from 'src/app/features/categories/pages/list-categories/list-categories.module';
 import { CreateBrandModule } from 'src/app/features/brands/pages/create-brand/create-brand.module';
 import { ListBrandsModule } from 'src/app/features/brands/pages/list-brands/list-brands.module';
+import { CreateArticleModule } from 'src/app/features/articles/pages/create-article/create-article.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ListBrandsModule } from 'src/app/features/brands/pages/list-brands/list
     CreateCategoryModule,
     ListCategoriesModule,
     CreateBrandModule,
-    ListBrandsModule
+    ListBrandsModule,
+    CreateArticleModule
   ]
 })
 export class DashboardTemplateModule { }

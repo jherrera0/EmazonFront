@@ -9,6 +9,8 @@ import { InputErrorHandlerComponent } from './input-error-handler/input-error-ha
 import { HambugerButtonComponent } from './hambuger-button/hambuger-button.component';
 import { DividerFooterPageComponent } from './divider-footer-page/divider-footer-page.component';
 import { ButtonComponent } from './button/button.component';
+import { DropDownListComponent } from './drop-down-list/drop-down-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -22,9 +24,11 @@ import { ButtonComponent } from './button/button.component';
     InputErrorHandlerComponent,
     HambugerButtonComponent,
     DividerFooterPageComponent,
-    ButtonComponent],
+    ButtonComponent,
+    DropDownListComponent],
   imports: [
     CommonModule,
+    FormsModule
   ],
   exports: [
     ToastComponent,
@@ -35,7 +39,8 @@ import { ButtonComponent } from './button/button.component';
     InputErrorHandlerComponent,
     HambugerButtonComponent,
     DividerFooterPageComponent,
-    ButtonComponent
+    ButtonComponent,
+    DropDownListComponent
   ]
 })
 export class AtomsModule { }

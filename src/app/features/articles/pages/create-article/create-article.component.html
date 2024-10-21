@@ -1,0 +1,41 @@
+<div class = "container">
+  <h1 class="principal-title poppins-regular">
+    Create a new <span class="principal-title__highlight">Article</span>
+  </h1>
+
+  <form
+    [formGroup] = "createArticleForm"
+    (ngSubmit) = "createArticle()"
+    class = "form">
+      <div class = "container-inputs">
+        <label for = "articleName" class = "infoInput poppins-regular">Article Name:</label>
+        <app-input-error-handler id = "articleName" formControlName = "articleName" [errorMessage] = "articleNameError"></app-input-error-handler>
+      </div>
+      <div class = "container-inputs">
+        <label for = "articleDescription" class = "infoInput poppins-regular">Article Description:</label>
+        <app-input-error-handler id = "articleDescription" formControlName = "articleDescription" [errorMessage] = "articleDescriptionError"></app-input-error-handler>
+      </div>
+      <div class = "container-inputs">
+        <label for = "articlePrice" class = "infoInput poppins-regular">Article Price:</label>
+        <app-input-error-handler id = "articlePrice" formControlName = "articlePrice" [errorMessage] = "articlePriceError"></app-input-error-handler>
+      </div>
+      <div class = "container-inputs">
+        <label for = "articleStock" class = "infoInput poppins-regular">Article Stock:</label>
+        <app-input-error-handler id = "articleStock" formControlName = "articleStock" [errorMessage] = "articleStockError"></app-input-error-handler>
+      </div>
+      <div class="select-container">
+        <label for = "brand" class = "infoInput poppins-regular">Select brand:</label>
+          <select class="selectedBrand" name="brand" (change)="onBrandIdCaptured($event)">
+            <option value = "0">Select a brand</option>
+            <option *ngFor = "let brand of brands.items" [value] = "brand.id">{{brand.name}}</option>
+          </select>
+      </div>
+      <div class="select-container">
+        <label for = "category" class = "infoInput poppins-regular">Select categories:</label>
+        <app-drop-down-list id = "category" [listOfData] = "categories.items" [selectionLimit] = 3 (ids)="onCategoriesIdCaptured($event)"></app-drop-down-list>
+      </div>
+      <div class = "container-button">
+        <app-button [disabled] = "isButtonDisabled()">Create Article</app-button>
+      </div>
+  </form>
+</div>

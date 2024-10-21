@@ -5,6 +5,7 @@ import { CreateCategoryComponent } from 'src/app/features/categories/pages/creat
 import { ListCategoriesComponent } from 'src/app/features/categories/pages/list-categories/list-categories.component';
 import { CreateBrandComponent } from 'src/app/features/brands/pages/create-brand/create-brand.component';
 import { ListBrandsComponent } from 'src/app/features/brands/pages/list-brands/list-brands.component';
+import { CreateArticleComponent } from 'src/app/features/articles/pages/create-article/create-article.component';
 
 const routes: Routes = [{
   path: '',
@@ -13,7 +14,8 @@ const routes: Routes = [{
     {   path: 'create-category', component: CreateCategoryComponent },
     { path: 'list-categories', component: ListCategoriesComponent},
     {path:'create-brand',component:CreateBrandComponent},
-    {path: 'list-brands', component:ListBrandsComponent}
+    {path: 'list-brands', component:ListBrandsComponent},
+    { path: 'create-article', component: CreateArticleComponent },
   ]}];
 
 @NgModule({

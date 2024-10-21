@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { BrandService } from '@service/brand.service';
 import { ToastService } from '@service/toast.service';
+import { ToastConst } from '@util/toastConst';
 
 @Component({
   selector: 'app-create-brand',
@@ -44,8 +45,8 @@ export class CreateBrandComponent implements OnInit {
     }
 
     this.brandService.saveBrand(brand).subscribe({
-      next: () => { this.toastService.showToast('Brand saved successfully', 'success'); },
-      error: () => { this.toastService.showToast(this.brandService.getErrorMessage(), 'error'); },
+      next: () => { this.toastService.showToast('Brand saved successfully', ToastConst.SUCCESS); },
+      error: () => { this.toastService.showToast(this.brandService.getErrorMessage(), ToastConst.ERROR); },
     });
   }
 
