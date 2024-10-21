@@ -76,8 +76,17 @@ export class CreateBrandComponent implements OnInit {
 
   get brandNameError(): string {
     const control = this.createBrandForm.get('brandName');
-    if (control?.hasError('required')||control?.hasError('minlength')||control?.hasError('pattern')||control?.hasError('maxlength')) {
+    if (control?.hasError('required')) {
       return 'Required a valid brand name';
+    }
+    if (control?.hasError('minlength')) {
+      return 'Brand name must be at least 3 characters';
+    }
+    if (control?.hasError('maxlength')) {
+      return 'Brand name must be at most 50 characters';
+    }
+    if (control?.hasError('pattern')) {
+      return 'Brand name contains forbidden characters';
     }
     return '';
   }
@@ -88,8 +97,17 @@ export class CreateBrandComponent implements OnInit {
 
   get brandDescriptionError(): string {
     const control = this.createBrandForm.get('brandDescription');
-    if (control?.hasError('required')||control?.hasError('minlength')||control?.hasError('pattern')||control?.hasError('maxlength')) {
+    if (control?.hasError('required')) {
       return 'Required a valid brand description';
+    }
+    if (control?.hasError('minlength')) {
+      return 'Brand description must be at least 3 characters';
+    }
+    if (control?.hasError('maxlength')) {
+      return 'Brand description must be at most 120 characters';
+    }
+    if (control?.hasError('pattern')) {
+      return 'Brand description contains forbidden characters';
     }
     return '';
   }
