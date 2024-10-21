@@ -228,7 +228,7 @@ describe('CreateArticleComponent', () => {
   });
 
   it('should call onBrandIdCaptured and set brandSelected', () => {
-    component.onBrandIdCaptured([1]);
+    component.onBrandIdCaptured({ target: { value: '1' } } as unknown as Event);
     expect(component.brandSelected).toBe(1);
   });
 

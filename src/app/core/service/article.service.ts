@@ -24,12 +24,14 @@ export class ArticleService {
 
   private getError(error: HttpErrorResponse) {
     const status = error.status;
+    console.log(error);
     if (status === 401 || status === 403) {
       this.errorMessage = 'You are not authorized to perform this action';
     }
     if(status === 409) {
       this.errorMessage = 'article already exists';
     }
+
     return throwError(() => error);
   }
 

@@ -7,6 +7,7 @@ import { CategoryService } from '@service/category.service';
 import { ArticleRequest } from '@model/article-request.model';
 import { BrandResponse, PaginationBrand } from '@model/brand-response.model';
 import { CategoryResponse, PaginationCategory } from '@model/category-response';
+import { ToastConst } from '@util/toastConst';
 
 @Component({
   selector: 'app-create-article',
@@ -15,19 +16,10 @@ import { CategoryResponse, PaginationCategory } from '@model/category-response';
 })
 export class CreateArticleComponent implements OnInit {
   public createArticleForm: FormGroup;
-  public brands: PaginationBrand<BrandResponse[]> = {
-    items: [],
-    pageSize: 0,
-    totalPages: 0,
-    currentPage: 0
-  };
-  public categories: PaginationCategory<CategoryResponse[]> = {
-    items: [],
-    pageSize: 0,
-    totalPages: 0,
-    currentPage: 0
-  };
+  public brands!: PaginationBrand<BrandResponse[]>;
+  public categories!: PaginationCategory<CategoryResponse[]>;
   brandSelected: number = 0;
+  brandSelectedString: string = '';
   categoriesSelected: number[] = [];
 
   ngOnInit(): void {
@@ -87,8 +79,8 @@ export class CreateArticleComponent implements OnInit {
       stock: this.createArticleForm.value.articleStock
     }
      this.articleService.saveArticle(article).subscribe({
-      next: () => { this.toastService.showToast('Article saved successfully', 'success'); },
-      error: () => { this.toastService.showToast(this.articleService.getErrorMessage(), 'error'); },
+      next: () => { this.toastService.showToast('Article saved successfully', ToastConst.SUCCESS); },
+      error: () => { this.toastService.showToast(this.articleService.getErrorMessage(), ToastConst.ERROR); },
     });
   }
 
@@ -135,9 +127,11 @@ export class CreateArticleComponent implements OnInit {
     return '';
   }
 
-  onBrandIdCaptured(ids: number[]){
-      this.brandSelected = ids[0];
+  onBrandIdCaptured(event: Event): void {
+    const target = event.target as HTMLSelectElement;
+    this.brandSelected = Number(target.value);
   }
+
   onCategoriesIdCaptured(ids: number[]){
     this.categoriesSelected = ids;
   }

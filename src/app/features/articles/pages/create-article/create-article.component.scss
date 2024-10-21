@@ -18,18 +18,30 @@
 
   .form {
     width: 100%;
-    max-width: 800px;
+    max-width: 50vw;
+    align-items: center;
 
     .container-inputs,
     .select-container {
+      display: grid;
       width: 100%;
-      margin-bottom: 5%;
     }
 
     .container-button {
       display: flex;
       justify-content: center;
       margin-top: 10%;
+    }
+    .selectedBrand {
+      max-width: 65%;
+      display: grid;
+      justify-content: center;
+      cursor: pointer;
+      padding: 4%;
+      border: 1px solid $border;
+      border-radius: 4px;
+      background-color: $bg_light_grey;
+      transition: background-color 0.2s;
     }
   }
   @media (max-width: 767px) {

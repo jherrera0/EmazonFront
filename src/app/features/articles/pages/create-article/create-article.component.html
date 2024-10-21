@@ -24,8 +24,11 @@
         <app-input-error-handler id = "articleStock" formControlName = "articleStock" [errorMessage] = "articleStockError"></app-input-error-handler>
       </div>
       <div class="select-container">
-        <label for = "category" class = "infoInput poppins-regular">Select brand:</label>
-        <app-drop-down-list id ="brand" [listOfData] = "brands.items" [selectionLimit] = 1 (ids)="onBrandIdCaptured($event)" ></app-drop-down-list>
+        <label for = "brand" class = "infoInput poppins-regular">Select brand:</label>
+          <select class="selectedBrand" name="brand" (change)="onBrandIdCaptured($event)">
+            <option value = "0">Select a brand</option>
+            <option *ngFor = "let brand of brands.items" [value] = "brand.id">{{brand.name}}</option>
+          </select>
       </div>
       <div class="select-container">
         <label for = "category" class = "infoInput poppins-regular">Select categories:</label>

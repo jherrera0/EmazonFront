@@ -10,6 +10,7 @@
           "@service/*": ["src/app/core/service/*"],
           "@model/*": ["src/app/core/model/*"],
           "@environments/*": ["src/environments/*"],
+          "@util/*": ["src/app/shared/util/*"],
       },
       "forceConsistentCasingInFileNames": true,
       "strict": true,
