@@ -97,33 +97,59 @@ export class CreateArticleComponent implements OnInit {
 
   get articleNameError(): string {
     const control = this.createArticleForm.get('articleName');
-    if(control?.hasError('required') || control?.hasError('minlength') || control?.hasError('pattern')){
+    if(control?.hasError('required')){
       return 'Valid article name is required';
+    }
+    if(control?.hasError('minlength')){
+      return 'Article name must be at least 3 characters';
+    }
+
+    if(control?.hasError('pattern')){
+      return 'Article name contains forbidden characters';
     }
     return '';
   }
 
   get articleDescriptionError(): string {
     const control = this.createArticleForm.get('articleDescription');
-    if(control?.hasError('required') || control?.hasError('minlength') || control?.hasError('pattern')){
+    if(control?.hasError('required') ){
       return 'Valid article description is required';
+    }
+    if(control?.hasError('minlength')){
+      return 'Article description must be at least 3 characters';
+    }
+    if(control?.hasError('pattern')){
+      return 'Article description contains forbidden characters';
     }
     return '';
   }
 
   get articlePriceError(): string {
     const control = this.createArticleForm.get('articlePrice');
-    if(control?.hasError('required') || control?.hasError('min')|| control?.hasError('pattern')){
+    if(control?.hasError('required')){
       return 'Valid article price is required';
+    }
+    if(control?.hasError('min')){
+      return 'Article price must be at least 1';
+    }
+    if(control?.hasError('pattern')){
+      return 'Article price must be a number';
     }
     return '';
   }
 
   get articleStockError(): string {
     const control = this.createArticleForm.get('articleStock');
-    if(control?.hasError('required') || control?.hasError('min')|| control?.hasError('pattern')){
+    if(control?.hasError('required')){
       return 'Valid article stock is required';
     }
+    if(control?.hasError('min')){
+      return 'Article stock must be at least 1';
+    }
+    if(control?.hasError('pattern')){
+      return 'Article stock must be a number';
+    }
+
     return '';
   }
 

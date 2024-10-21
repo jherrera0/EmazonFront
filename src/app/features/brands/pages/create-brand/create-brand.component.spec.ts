@@ -94,20 +94,53 @@ describe("CreateBrandComponent", () => {
   });
 
 
-  it('should return correct error message for brandName', () => {
+  it('should return correct error message for brandName with required', () => {
     component.createBrandForm.get('brandName')?.setErrors({ required: true });
     expect(component.brandNameError).toBe('Required a valid brand name');
   });
+
+  it('should return correct error message for brandName with min requires', () => {
+    component.createBrandForm.get('brandName')?.setErrors({ minlength: { requiredLength: 3, actualLength: 1 } });
+    expect(component.brandNameError).toBe('Brand name must be at least 3 characters');
+  });
+
+  it('should return correct error message for brandName with max requires', () => {
+    component.createBrandForm.get('brandName')?.setErrors({ maxlength: { requiredLength: 50, actualLength: 65 } });
+    expect(component.brandNameError).toBe('Brand name must be at most 50 characters');
+  });
+
+  it('should return correct error message for brandName with pattern', () => {
+    component.createBrandForm.get('brandName')?.setErrors({ pattern: true });
+    expect(component.brandNameError).toBe('Brand name contains forbidden characters');
+  });
+
 
   it('should not return error message for brandName', () => {
     component.createBrandForm.get('brandName')?.setErrors(null);
     expect(component.brandNameError).toBe('');
   });
 
-  it('should return correct error message for brandDescription', () => {
+  it('should return correct error message for brandDescription with min requires', () => {
     component.createBrandForm.get('brandDescription')?.setErrors({ minlength: { requiredLength: 3, actualLength: 1 } });
+    expect(component.brandDescriptionError).toBe('Brand description must be at least 3 characters');
+  });
+
+  it('should return correct error message for brandDescription with max requires', () => {
+    component.createBrandForm.get('brandDescription')?.setErrors({ maxlength: { requiredLength: 50, actualLength: 65 } });
+    expect(component.brandDescriptionError).toBe('Brand description must be at most 120 characters');
+  });
+
+  it('should return correct error message for brandDescription with pattern', () => {
+    component.createBrandForm.get('brandDescription')?.setErrors({ pattern: true });
+    expect(component.brandDescriptionError).toBe('Brand description contains forbidden characters');
+  });
+
+  it('should return correct error message for brandDescription with required', () => {
+    component.createBrandForm.get('brandDescription')?.setErrors({ required: true });
     expect(component.brandDescriptionError).toBe('Required a valid brand description');
   });
+
+
 
   it('should not return error message for brandDescription', () => {
     component.createBrandForm.get('brandDescription')?.setErrors(null);

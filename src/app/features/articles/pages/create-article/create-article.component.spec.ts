@@ -144,6 +144,16 @@ describe('CreateArticleComponent', () => {
     expect(component.articleNameError).toBe('Valid article name is required');
   });
 
+  it('should return correct error message for articleName', () => {
+    component.createArticleForm.get('articleName')?.setErrors({ minlength: { requiredLength: 3 } });
+    expect(component.articleNameError).toBe('Article name must be at least 3 characters');
+  });
+
+  it('should return correct error message for articleName', () => {
+    component.createArticleForm.get('articleName')?.setErrors({ pattern: true });
+    expect(component.articleNameError).toBe('Article name contains forbidden characters');
+  });
+
   it('should not return error message for articleName', () => {
     component.createArticleForm.get('articleName')?.setErrors(null);
     expect(component.articleNameError).toBe('');
@@ -152,6 +162,16 @@ describe('CreateArticleComponent', () => {
   it('should return correct error message for articleDescription', () => {
     component.createArticleForm.get('articleDescription')?.setErrors({ required: true });
     expect(component.articleDescriptionError).toBe('Valid article description is required');
+  });
+
+  it('should return correct error message for articleDescription', () => {
+    component.createArticleForm.get('articleDescription')?.setErrors({ minlength: { requiredLength: 3 } });
+    expect(component.articleDescriptionError).toBe('Article description must be at least 3 characters');
+  });
+
+  it('should return correct error message for articleDescription', () => {
+    component.createArticleForm.get('articleDescription')?.setErrors({ pattern: true });
+    expect(component.articleDescriptionError).toBe('Article description contains forbidden characters');
   });
 
   it('should not return error message for articleDescription', () => {
@@ -181,22 +201,22 @@ describe('CreateArticleComponent', () => {
 
   it('should return correct error message for articlePrice pattern', () => {
     component.createArticleForm.get('articlePrice')?.setErrors({ pattern: true });
-    expect(component.articlePriceError).toBe('Valid article price is required');
+    expect(component.articlePriceError).toBe('Article price must be a number');
   });
 
   it('should return correct error message for articleStock pattern', () => {
     component.createArticleForm.get('articleStock')?.setErrors({ pattern: true });
-    expect(component.articleStockError).toBe('Valid article stock is required');
+    expect(component.articleStockError).toBe('Article stock must be a number');
   });
 
   it('should return correct error message for articlePrice min', () => {
     component.createArticleForm.get('articlePrice')?.setErrors({ min: true });
-    expect(component.articlePriceError).toBe('Valid article price is required');
+    expect(component.articlePriceError).toBe('Article price must be at least 1');
   });
 
   it('should return correct error message for articleStock min', () => {
     component.createArticleForm.get('articleStock')?.setErrors({ min: true });
-    expect(component.articleStockError).toBe('Valid article stock is required');
+    expect(component.articleStockError).toBe('Article stock must be at least 1');
   });
 
 

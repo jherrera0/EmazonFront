@@ -83,16 +83,34 @@ export class CreateCategoryComponent implements OnInit {
 
   get categoryNameError(): string {
     const control = this.createCategoryForm.get('categoryName');
-    if (control?.hasError('required')||control?.hasError('minlength')||control?.hasError('pattern')||control?.hasError('maxlength')) {
+    if (control?.hasError('required')) {
       return 'Required a valid category name';
+    }
+    if (control?.hasError('minlength')) {
+      return 'Category name must be at least 3 characters';
+    }
+    if (control?.hasError('maxlength')) {
+      return 'Category name must be at most 50 characters';
+    }
+    if (control?.hasError('pattern')) {
+      return 'Category name contains forbidden characters';
     }
     return '';
   }
 
   get categoryDescriptionError(): string {
     const control = this.createCategoryForm.get('categoryDescription');
-    if (control?.hasError('required')||control?.hasError('minlength')||control?.hasError('pattern')||control?.hasError('maxlength')) {
+    if (control?.hasError('required')) {
       return 'Required a valid category description';
+    }
+    if (control?.hasError('minlength')) {
+      return 'Category description must be at least 3 characters';
+    }
+    if (control?.hasError('maxlength')) {
+      return 'Category description must be at most 90 characters';
+    }
+    if (control?.hasError('pattern')) {
+      return 'Category description contains forbidden characters';
     }
     return '';
   }

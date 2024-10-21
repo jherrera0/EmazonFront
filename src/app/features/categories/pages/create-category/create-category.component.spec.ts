@@ -89,6 +89,21 @@ describe('CreateCategoryComponent', () => {
     expect(component.categoryNameError).toBe('Required a valid category name');
   });
 
+  it('should return correct error message for categoryName', () => {
+    component.createCategoryForm.get('categoryName')?.setErrors({ minlength: { requiredLength: 3, actualLength: 1 } });
+    expect(component.categoryNameError).toBe('Category name must be at least 3 characters');
+  });
+
+  it('should return correct error message for categoryName', () => {
+    component.createCategoryForm.get('categoryName')?.setErrors({ maxlength: { requiredLength: 50, actualLength: 65 } });
+    expect(component.categoryNameError).toBe('Category name must be at most 50 characters');
+  });
+
+  it('should return correct error message for categoryName', () => {
+    component.createCategoryForm.get('categoryName')?.setErrors({ pattern: true });
+    expect(component.categoryNameError).toBe('Category name contains forbidden characters');
+  });
+
   it('should not return error message for categoryName', () => {
     component.createCategoryForm.get('categoryName')?.setErrors(null);
     expect(component.categoryNameError).toBe('');
@@ -96,8 +111,24 @@ describe('CreateCategoryComponent', () => {
 
   it('should return correct error message for categoryDescription', () => {
     component.createCategoryForm.get('categoryDescription')?.setErrors({ minlength: { requiredLength: 3, actualLength: 1 } });
+    expect(component.categoryDescriptionError).toBe('Category description must be at least 3 characters');
+  });
+
+  it('should return correct error message for categoryDescription', () => {
+    component.createCategoryForm.get('categoryDescription')?.setErrors({ required: true });
     expect(component.categoryDescriptionError).toBe('Required a valid category description');
   });
+
+  it('should return correct error message for categoryDescription', () => {
+    component.createCategoryForm.get('categoryDescription')?.setErrors({ maxlength: { requiredLength: 90, actualLength: 150 } });
+    expect(component.categoryDescriptionError).toBe('Category description must be at most 90 characters');
+  });
+
+  it('should return correct error message for categoryDescription', () => {
+    component.createCategoryForm.get('categoryDescription')?.setErrors({ pattern: true });
+    expect(component.categoryDescriptionError).toBe('Category description contains forbidden characters');
+  });
+
 
   it('should not return error message for categoryDescription', () => {
     component.createCategoryForm.get('categoryDescription')?.setErrors(null);
@@ -111,6 +142,7 @@ describe('CreateCategoryComponent', () => {
     const message = component.getErrorMessage(control, 'Category Name');
     expect(message).toBe('Category Name is required.');
   });
+
   it('should return correct error message for minlength error', () => {
     const control = new FormControl();
     control.setErrors({ minlength: { requiredLength: 3, actualLength: 1 } });
@@ -125,6 +157,14 @@ describe('CreateCategoryComponent', () => {
     control.markAsTouched();
     const message = component.getErrorMessage(control, 'Category Name');
     expect(message).toBe('Category Name must be at most 50 characters.');
+  });
+
+  it('should return correct error message for pattern error', () => {
+    const control = new FormControl();
+    control.setErrors({ pattern: true });
+    control.markAsTouched();
+    const message = component.getErrorMessage(control, 'Category Name');
+    expect(message).toBe('Category Name contains forbidden characters.');
   });
 
   it('should return correct error message for pattern error', () => {
