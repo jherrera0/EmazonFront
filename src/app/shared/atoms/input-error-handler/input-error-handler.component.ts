@@ -21,6 +21,7 @@ export class InputErrorHandlerComponent implements ControlValueAccessor {
   @Input() value: string = '';
   @Input() disabled: boolean = false;
   @Input() errorMessage: string = '';
+  @Input() type: string = 'text';
 
   onChange: any = () => {};
   onTouched: any = () => {};

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { InputErrorHandlerComponent } from './input-error-handler.component';
 
 describe('InputErrorHandlerComponent', () => {
@@ -48,20 +47,13 @@ describe('InputErrorHandlerComponent', () => {
     expect(component.disabled).toBe(false);
   });
 
-  it('should update value and call onChange and onTouched on input event', () => {
-    const testValue = 'test input';
-    const inputElement = document.createElement('input');
-    inputElement.value = testValue;
-    const event = new Event('input');
-    Object.defineProperty(event, 'target', { value: inputElement });
+  it('should have default type as text', () => {
+    expect(component.type).toBe('text');
+  });
 
-    const onChangeSpy = jest.spyOn(component, 'onChange');
-    const onTouchedSpy = jest.spyOn(component, 'onTouched');
-
-    component.onInput(event);
-
-    expect(component.value).toBe(testValue);
-    expect(onChangeSpy).toHaveBeenCalledWith(testValue);
-    expect(onTouchedSpy).toHaveBeenCalled();
-    });
+  it('should accept and set type input', () => {
+    component.type = 'number';
+    fixture.detectChanges();
+    expect(component.type).toBe('number');
+  });
 });

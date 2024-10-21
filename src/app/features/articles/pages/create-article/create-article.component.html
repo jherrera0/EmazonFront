@@ -8,20 +8,20 @@
     (ngSubmit) = "createArticle()"
     class = "form">
       <div class = "container-inputs">
-        <label for = "articleName" class = "infoInput poppins-regular">Article Name:</label>
+        <label for = "articleName" type = "text" class = "infoInput poppins-regular">Article Name:</label>
         <app-input-error-handler id = "articleName" formControlName = "articleName" [errorMessage] = "articleNameError"></app-input-error-handler>
       </div>
       <div class = "container-inputs">
-        <label for = "articleDescription" class = "infoInput poppins-regular">Article Description:</label>
+        <label for = "articleDescription" type = "text" class = "infoInput poppins-regular">Article Description:</label>
         <app-input-error-handler id = "articleDescription" formControlName = "articleDescription" [errorMessage] = "articleDescriptionError"></app-input-error-handler>
       </div>
       <div class = "container-inputs">
-        <label for = "articlePrice" class = "infoInput poppins-regular">Article Price:</label>
+        <label for = "articlePrice" type = "number" class = "infoInput poppins-regular">Article Price:</label>
         <app-input-error-handler id = "articlePrice" formControlName = "articlePrice" [errorMessage] = "articlePriceError"></app-input-error-handler>
       </div>
       <div class = "container-inputs">
         <label for = "articleStock" class = "infoInput poppins-regular">Article Stock:</label>
-        <app-input-error-handler id = "articleStock" formControlName = "articleStock" [errorMessage] = "articleStockError"></app-input-error-handler>
+        <app-input-error-handler type = "number" id = "articleStock" formControlName = "articleStock" [errorMessage] = "articleStockError"></app-input-error-handler>
       </div>
       <div class="select-container">
         <label for = "brand" class = "infoInput poppins-regular">Select brand:</label>
