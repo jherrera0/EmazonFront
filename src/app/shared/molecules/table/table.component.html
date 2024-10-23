@@ -1,16 +1,30 @@
-<div class ="wrapper">
-  <table>
-    <thead>
-      <tr>
-        <th *ngFor="let header of headers" scope="col">{{ header }}</th>
-      </tr>
-    </thead>
-    <tbody class="form" *ngIf="pageData.items.length > 0">
-      <tr *ngFor="let item of pageData.items">
-        <app-table-cell [content]="item.id"></app-table-cell>
-        <app-table-cell [content]="item.name"></app-table-cell>
-        <app-table-cell class = "description"[content]="item.description" ></app-table-cell>
-      </tr>
-    </tbody>
-  </table>
+<div class="table-container">
+  <div class="wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let header of headers" scope="col">{{ header }}</th>
+        </tr>
+      </thead>
+      <tbody class="form" *ngIf="pageData.items.length > 0">
+        <tr *ngFor="let item of pageData.items">
+          <td *ngFor="let key of keys">
+            <ng-container *ngIf="isObject(item[key]); else plainText">
+              <ng-container *ngIf="key === 'brand'">{{ getBrandName(item[key]) }}</ng-container>
+              <ng-container *ngIf="key === 'categories'">
+                <span *ngFor="let category of item[key]" class="badge text-bg-primary">
+                  {{ category.name }}
+                </span>
+              </ng-container>
+            </ng-container>
+            <ng-template #plainText>
+              <span class="truncated-text">
+                {{ item[key].length > 15 ? (item[key] | slice:0:10) + '...' : item[key] }}
+              </span>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

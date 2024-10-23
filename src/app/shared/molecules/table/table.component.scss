@@ -1,58 +1,105 @@
 @use '/src/styles/stylesReference.scss' as *;
-table {
-  width: fit-content;
-  border-collapse: collapse;
-  margin: 2.5%;
-  font-size: 1.5em;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  min-width: 90vw;
-}
 
-thead {
-  background-color: $purple;
-  color: $white;
-  text-align: left;
-  font-weight: bold;
-  font-size: 1.2em;
-}
+.table-container {
+  width: 97vw;
 
-th {
-  padding: 2.5% 2.5%;
-  border: 1px solid $border;
-  text-align: left;
-  box-sizing: border-box;
-  width: auto;
-}
-
-tbody.form {
-
-  tr {
-    border-bottom: 1px solid $border;
-  }
-  tr:nth-of-type(even) {
-    background-color: $bg_light_grey;
+  .wrapper {
+    max-height: 35vh;
+    overflow-y: scroll;
+    overflow-x: scroll;
   }
 
-  tr:hover {
-    background-color: $bg_light_grey;
+  table {
+    width: fit-content;
+    border-collapse: collapse;
+    margin: 2.5%;
+    font-size: 1.5em;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    max-width: 90vw;
+    max-height: 80vh;
+
+
+    thead {
+      background-color: $purple;
+      color: $white;
+      text-align: left;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    th {
+      padding: 2.5%;
+      min-width: 13ch;
+      border: 1px solid $border;
+      text-align: left;
+      box-sizing: border-box;
+      width: auto;
+    }
+
+    tbody.form {
+      tr {
+        border-bottom: 1px solid $border;
+      }
+      tr:nth-of-type(even) {
+        background-color: $bg_light_grey;
+      }
+      tr:hover {
+        background-color: $bg_light_grey;
+      }
+    }
+
+    .truncated-text {
+      cursor: pointer; // Cambia el cursor para indicar interactividad
+      overflow: hidden; // Evita que el texto desborde
+      white-space: nowrap; // Evita que el texto se envuelva
+      text-overflow: ellipsis; // Agrega puntos suspensivos al texto truncado
+      max-width: 10ch; // Limita el ancho máximo a 10 caracteres
+    }
+
+    // Estilos para texto completo al hacer hover
+    .truncated-text:hover {
+      white-space: normal; // Permitir que el texto se envuelva
+      max-width: none; // Quitar el límite de ancho
+    }
+  }
+}
+.badge {
+  display: inline-block;
+  padding: 0.5em 0.75em;
+  margin: 0.2em;
+  font-size: 0.75em;
+  font-weight: 700;
+  color: white;
+  background-color: $purple; // Cambia este color según tus preferencias
+  border-radius: 0.5em;
+  transition: background-color 0.3s, transform 0.2s;
+
+  // Cambia el color al hacer hover
+  &:hover {
+    background-color: darken($purple, 10%); // Oscurece el color al pasar el cursor
+    transform: scale(1.05); // Aumenta ligeramente el tamaño
   }
 }
 
-app-table-cell {
-  display: table-cell;
-  padding: 5% 5%;
-  border: 1px solid $border;
-  text-align: center;
-}
+// Estilos específicos para dispositivos de escritorio
+@media (min-width: 768px) {
+  .table-container {
+    width: 100%; // Ajusta el ancho para pantallas más grandes
+  }
+  .badge {
+    font-size: 0.9em; // Aumenta el tamaño de la fuente en pantallas más grandes
+    padding: 0.7em 1em; // Ajusta el padding para mejor visualización
+  }
+  table {
+    width: 100%;
+    font-size: 1.2em; // Ajusta el tamaño de fuente para pantallas más grandes
 
-.wrapper {
-  overflow-y: scroll;
-  max-height: 60vh;
-  max-width: fit-content;
-}
+    th, td {
+      padding: 1.5%; // Ajustar el padding en pantallas más grandes
+    }
 
-.description {
-  width: 50%;
-  text-align: left;
-  word-break: break-all;
+    .truncated-text {
+      max-width: 20ch; // Permite un poco más de ancho en desktop
+    }
+  }
 }

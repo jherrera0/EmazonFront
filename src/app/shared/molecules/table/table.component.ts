@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CategoryResponse, PaginationCategory } from 'src/app/core/model/category-response';
+import { BrandResponseCustom } from '@model/brand-response.model';
+import { CategoryResponseCustom } from '@model/category-response';
+import { Pagination } from '@model/pagination.model';
+
 
 
 @Component({
@@ -8,10 +11,21 @@ import { CategoryResponse, PaginationCategory } from 'src/app/core/model/categor
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  @Input()  pageData!: PaginationCategory<CategoryResponse[]>;
+  @Input()  pageData!: Pagination<any>;
+  @Input() keys:  (keyof any)[] = [];
   @Input() headers: string[] = [];
   @Output() onPageChange = new EventEmitter<number>();
 
+  isObject(value: any): boolean {
+    return value && typeof value === 'object';
+  }
+
+  getCategories(categories: CategoryResponseCustom[]): string {
+    return categories.map(category => category.name).join(', ');
+  }
+
+  getBrandName(brand: BrandResponseCustom): string {
+    return brand.name;  }
 
   constructor() { }
   ngOnInit() {
