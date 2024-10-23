@@ -3,7 +3,8 @@ import { HttpClient ,  HttpHeaders, HttpErrorResponse, HttpParams} from '@angula
 import { catchError, Observable , throwError } from 'rxjs';
 import { environment } from '@environments/environment';
 import { CategoryRequest } from 'src/app/core/model/category-request.model';
-import { CategoryResponse, PaginationCategory } from 'src/app/core/model/category-response';
+import { CategoryResponse} from 'src/app/core/model/category-response';
+import { Pagination } from '@model/pagination.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +16,13 @@ export class CategoryService {
 
   constructor(private readonly http: HttpClient) { }
 
-  getCategories(page: number, size: number, sortDirection: string): Observable<PaginationCategory<CategoryResponse[]>> {
+  getCategories(page: number, size: number, sortDirection: string): Observable<Pagination<CategoryResponse[]>> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.token}`,
       'Content-Type': 'application/json',
     });
     const params = new HttpParams().set('page', page).set('size', size).set('sortDirection', sortDirection);
-    return this.http.get<PaginationCategory<CategoryResponse[]>>(`${this.CategoryUrl}/category/all`, { headers, params });
+    return this.http.get<Pagination<CategoryResponse[]>>(`${this.CategoryUrl}/category/all`, { headers, params });
    }
 
   saveCategory(category: CategoryRequest): Observable<void> {
