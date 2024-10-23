@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { CategoryService } from '../../../../core/service/category.service';
-import { CreateCategoryComponent } from './create-category.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CreateCategoryComponent } from 'src/app/features/categories/pages/create-category/create-category.component';
+import { CategoryService } from '@service/category.service';
+import { CreateCategoryRoutingModule } from './create-category-routing.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CreateCategoryRoutingModule
   ],
   providers: [CategoryService]
 })

@@ -11,6 +11,7 @@
       <label for="brandName" class="infoInput poppins-regular">Brand Name:</label>
       <div class="container-inputs">
         <app-input-error-handler
+          type="text"
           id="categoryName"
           formControlName="brandName"
           [errorMessage]="brandNameError"
@@ -19,6 +20,7 @@
       <label for="brandDescription" class="infoInput poppins-regular">Brand Description:</label>
       <div class="container-inputs">
         <app-input-error-handler
+          type="text"
           id="brandDescription"
           formControlName="brandDescription"
           [errorMessage]="brandDescriptionError"

@@ -8,43 +8,7 @@ import { BrandResponse, PaginationBrand } from '@model/brand-response.model';
   styleUrls: ['./list-brands.component.scss']
 })
 export class ListBrandsComponent implements OnInit {
-  brandsPage: PaginationBrand<BrandResponse[]> = {
-    "currentPage": 0,
-    "pageSize": 5,
-    "totalPages": 2,
-    "items": [
-        {
-            "id": -1,
-            "name": "",
-            "description": ""
-        },
-        {
-          "id": 1,
-          "name": "brand1",
-          "description": "description1"
-        },
-        {
-          "id": 2,
-          "name": "brand2",
-          "description": "description2"
-        },
-        {
-          "id": 3,
-          "name": "brand3",
-          "description": "description3"
-        },
-        {
-          "id": 4,
-          "name": "brand4",
-          "description": "description4"
-        },
-        {
-          "id": 5,
-          "name": "brand5",
-          "description": "description5"
-        }
-    ]
-  };
+  brandsPage!: PaginationBrand<BrandResponse[]>;
   pages: number[] = [];
   pageSize: number = 5;
   sortDirection: string = 'asc';

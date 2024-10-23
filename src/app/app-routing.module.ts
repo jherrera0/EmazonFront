@@ -1,19 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateCategoryComponent } from './features/categories/pages/create-category/create-category.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       {
         path: 'dashboard',
-        loadChildren: () =>
-          import('./shared/temp/dashboard-template/dashboard-template.module').then(
-            (m) => m.DashboardTemplateModule
-          ),
+        loadChildren:( ) => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
-  {
-    path: 'create-category', component: CreateCategoryComponent
-  }
 ];
 
 @NgModule({

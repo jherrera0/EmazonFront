@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CategoryService } from '../../../../core/service/category.service';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CategoryService } from '@service/category.service';
+import { ListBrandsComponent } from 'src/app/features/brands/pages/list-brands/list-brands.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ListBrandsComponent } from './list-brands.component';
+import { ListBrandsRoutingModule } from './list-brands-routing.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ListBrandsComponent } from './list-brands.component';
   imports: [
     FormsModule,
     SharedModule,
-    CommonModule
+    CommonModule,
+    ListBrandsRoutingModule
   ],
   providers: [CategoryService]
 })

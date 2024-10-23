@@ -1,11 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BrandService } from '@service/brand.service';
-import { CreateArticleComponent } from './create-article.component';
-import { CategoryService } from '@service/category.service';
 import { ArticleService } from '@service/article.service';
+import { BrandService } from '@service/brand.service';
+import { CategoryService } from '@service/category.service';
+import { CreateArticleComponent } from 'src/app/features/articles/pages/create-article/create-article.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { CreateArticleRoutingModule } from './create-article-routing.module';
+
 
 
 @NgModule({
@@ -13,7 +15,8 @@ import { ArticleService } from '@service/article.service';
   imports: [
     CommonModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CreateArticleRoutingModule
   ],
   providers: [BrandService,CategoryService,ArticleService]
 })
