@@ -4,9 +4,7 @@ export interface BrandResponse {
   description: string;
 }
 
-export interface PaginationBrand<T> {
-  currentPage: number;
-  pageSize: number;
-  totalPages: number;
-  items: T;
+export interface BrandResponseCustom{
+  id: number;
+  name: string;
 }

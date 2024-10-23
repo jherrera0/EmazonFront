@@ -4,9 +4,8 @@ export interface CategoryResponse {
   description: string;
 }
 
-export interface PaginationCategory<T> {
-  currentPage: number;
-  pageSize: number;
-  totalPages: number;
-  items: T;
+export interface CategoryResponseCustom{
+  id: number;
+  name: string;
 }
+
