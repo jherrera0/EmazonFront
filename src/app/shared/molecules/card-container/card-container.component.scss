@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+}
+
+.card-container {
+  display: flex;              /* Habilita Flexbox */
+  flex-wrap: wrap;            /* Permite que las tarjetas se ajusten en varias filas si es necesario */
+  justify-content: space-around; /* Espacia las tarjetas horizontalmente */
+  gap: 16px;                  /* Espacio entre las tarjetas */
+  padding: 16px;
+}

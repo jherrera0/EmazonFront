@@ -49,17 +49,16 @@
     }
 
     .truncated-text {
-      cursor: pointer; // Cambia el cursor para indicar interactividad
-      overflow: hidden; // Evita que el texto desborde
-      white-space: nowrap; // Evita que el texto se envuelva
-      text-overflow: ellipsis; // Agrega puntos suspensivos al texto truncado
-      max-width: 10ch; // Limita el ancho máximo a 10 caracteres
+      cursor: pointer;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 10ch;
     }
 
-    // Estilos para texto completo al hacer hover
     .truncated-text:hover {
-      white-space: normal; // Permitir que el texto se envuelva
-      max-width: none; // Quitar el límite de ancho
+      white-space: normal;
+      max-width: none;
     }
   }
 }
@@ -70,36 +69,35 @@
   font-size: 0.75em;
   font-weight: 700;
   color: white;
-  background-color: $purple; // Cambia este color según tus preferencias
+  background-color: $purple;
   border-radius: 0.5em;
   transition: background-color 0.3s, transform 0.2s;
 
-  // Cambia el color al hacer hover
   &:hover {
-    background-color: darken($purple, 10%); // Oscurece el color al pasar el cursor
-    transform: scale(1.05); // Aumenta ligeramente el tamaño
+    background-color: darken($purple, 10%);
+    transform: scale(1.05);
   }
 }
 
-// Estilos específicos para dispositivos de escritorio
+
 @media (min-width: 768px) {
   .table-container {
-    width: 100%; // Ajusta el ancho para pantallas más grandes
+    width: 100%;
   }
   .badge {
-    font-size: 0.9em; // Aumenta el tamaño de la fuente en pantallas más grandes
-    padding: 0.7em 1em; // Ajusta el padding para mejor visualización
+    font-size: 0.9em;
+    padding: 0.7em 1em;
   }
   table {
     width: 100%;
-    font-size: 1.2em; // Ajusta el tamaño de fuente para pantallas más grandes
+    font-size: 1.2em;
 
     th, td {
-      padding: 1.5%; // Ajustar el padding en pantallas más grandes
+      padding: 1.5%;
     }
 
     .truncated-text {
-      max-width: 20ch; // Permite un poco más de ancho en desktop
+      max-width: 20ch;
     }
   }
 }

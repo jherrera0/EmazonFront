@@ -11,6 +11,7 @@ import { DividerFooterPageComponent } from './divider-footer-page/divider-footer
 import { ButtonComponent } from './button/button.component';
 import { DropDownListComponent } from './drop-down-list/drop-down-list.component';
 import { FormsModule } from '@angular/forms';
+import { CardComponent } from './card/card.component';
 
 
 
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     HambugerButtonComponent,
     DividerFooterPageComponent,
     ButtonComponent,
-    DropDownListComponent],
+    DropDownListComponent,
+    CardComponent],
   imports: [
     CommonModule,
     FormsModule
@@ -40,7 +42,8 @@ import { FormsModule } from '@angular/forms';
     HambugerButtonComponent,
     DividerFooterPageComponent,
     ButtonComponent,
-    DropDownListComponent
+    DropDownListComponent,
+    CardComponent
   ]
 })
 export class AtomsModule { }
