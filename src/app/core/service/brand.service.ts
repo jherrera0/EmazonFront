@@ -33,13 +33,7 @@ export class BrandService {
   }
 
   private getError(error: HttpErrorResponse) {
-    const status = error.status;
-    if (status === 401 || status === 403) {
-      this.errorMessage = 'You are not authorized to perform this action';
-    }
-    if(status === 409) {
-      this.errorMessage = 'Brand already exists';
-    }
+    this.errorMessage = error.error.message;
     return throwError(() => error);
   }
   getErrorMessage(): string {
