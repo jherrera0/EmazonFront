@@ -35,13 +35,7 @@ export class CategoryService {
   }
 
   private getError(error: HttpErrorResponse) {
-    const status = error.status;
-    if (status === 401 || status === 403) {
-    this.errorMessage = 'You are not authorized to perform this action';
-    }
-    if(status === 400) {
-      this.errorMessage = 'Category already exists';
-    }
+    this.errorMessage = error.error.message;
     return throwError(() => error);
   }
 

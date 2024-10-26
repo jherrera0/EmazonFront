@@ -3,6 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { CategoryService } from './category.service';
 import { CategoryRequest } from 'src/app/core/model/category-request.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { environment } from '@environments/environment';
 
 describe('CategoryService', () => {
   let service: CategoryService;
@@ -38,28 +39,6 @@ describe('CategoryService', () => {
     req.flush(null);
   });
 
-  it('should handle 401 error in getError', () => {
-    const errorResponse = new HttpErrorResponse({
-      status: 401,
-      statusText: 'Unauthorized'
-    });
-
-    service['getError'](errorResponse);
-
-    expect(service.getErrorMessage()).toBe('You are not authorized to perform this action');
-  });
-
-  it('should handle 400 error in getError', () => {
-    const errorResponse = new HttpErrorResponse({
-      status: 400,
-      statusText: 'Bad Request'
-    });
-
-    service['getError'](errorResponse);
-
-    expect(service.getErrorMessage()).toBe('Category already exists');
-  });
-
   it('should return error message from getErrorMessage', () => {
     service['errorMessage'] = 'Test error message';
     expect(service.getErrorMessage()).toBe('Test error message');
@@ -82,4 +61,27 @@ describe('CategoryService', () => {
     req.flush(mockResponse);
   });
 
+  it('should handle errors', () => {
+    const brandRequest: CategoryRequest = { name: 'Test Brand', description: 'Test Description' };
+    service.saveCategory(brandRequest).subscribe({
+      error: (error) => {
+        expect(service.getErrorMessage()).toBe('You are not authorized to perform this action');
+      }
+    });
+
+    const req = httpMock.expectOne(`${environment.stokApi}/category/save`);
+    req.flush('Unauthorized', { status: 401, statusText: 'Unauthorized' });
+  });
+
+  it('should handle 409 error', () => {
+    const brandRequest: CategoryRequest= { name: 'Test Brand', description: 'Test Description' };
+    service.saveCategory(brandRequest).subscribe({
+      error: (error) => {
+        expect(service.getErrorMessage()).toBe('Brand already exists');
+      }
+    });
+
+    const req = httpMock.expectOne(`${environment.stokApi}/category/save`);
+    req.flush('Conflict', { status: 409, statusText: 'Conflict' });
+  });
 });
