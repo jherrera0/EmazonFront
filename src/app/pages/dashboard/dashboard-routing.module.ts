@@ -3,8 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardTemplateComponent } from '@templates/dashboard-template/dashboard-template.component';
 
 
-const routes: Routes = [{
-  path: '',
+const routes: Routes = [
+
+  {path: '', redirectTo: 'modules/list-articles', pathMatch: 'full'},
+  {
+  path: 'modules',
   component: DashboardTemplateComponent,
   children: [
         {   path: 'create-category',
@@ -24,6 +27,14 @@ const routes: Routes = [{
           path: 'create-article',
           loadChildren: () => import('src/app/pages/article/create-article/create-article.module').then(m => m.CreateArticleModule)
         },
+        {
+          path: 'list-articles',
+          loadChildren: () => import('src/app/pages/article/list-articles/list-articles.module').then(m => m.ListArticlesModule)
+        },
+        {
+          path: 'list-articles-with-cards',
+          loadChildren: () => import('src/app/pages/article/list-articles-with-cards/list-articles-with-cards.module').then(m => m.ListArticlesWithCardsModule)
+        }
       ]
     }
   ];

@@ -1,0 +1,112 @@
+@use '/src/styles/stylesReference.scss' as *;
+
+.title{
+  text-align: center;
+  font-size: 2em;
+  color: $purple;
+  margin: 5% ;
+}
+.controls{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  .pageSizeGroup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2% ;
+    border: 0;
+    .labelPageSize{
+      font-size: 1.5em;
+      color: $purple;
+    }
+    .pageSize{
+      margin: 0 5.5%;
+      padding: 1.5% 2.5%;
+      background-color: $white;
+      color: $black;
+      font-size: 1.5em;
+    }
+  }
+  .sortDirectionGroup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2% ;
+    border: 0;
+    .labelSortDirection{
+      font-size: 1.5em;
+      color: $purple;
+    }
+    .sortDirection{
+      margin: 0 5.5%;
+      padding: 1.5% .5%;
+      background-color: $white;
+      color: $black;
+      font-size: 1.5em;
+    }
+  }
+
+  .sortByGroup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2% ;
+    border: 0;
+    .labelSortBy{
+      font-size: 1.5em;
+      color: $purple;
+    }
+    .sortBy{
+      margin: 0 5.5%;
+      padding: 1.5% 2.5%;
+      background-color: $white;
+      color: $black;
+      font-size: 1.5em;
+    }
+  }
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .listOfPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .5% ;
+    border: 0;
+  }
+
+  .pages{
+    border: none;
+    margin: 10%;
+    padding: 2.5% 2.5%;
+    color: $black;
+    font-size: 150%;
+    &.active {
+      background-color: $white;
+      text-decoration: underline solid $purple;
+      color: $purple;
+    }
+  }
+  app-button {
+    margin: 5%;
+    padding: 3.5% 3.5%;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+  }
+
+  .card-container{
+    display: flex;
+    flex-direction: row;
+
+  }
+
+}

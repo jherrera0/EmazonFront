@@ -56,4 +56,21 @@ describe('InputErrorHandlerComponent', () => {
     fixture.detectChanges();
     expect(component.type).toBe('number');
   });
+
+  it('should update value and call onChange and onTouched on input event', () => {
+    const testValue = 'new value';
+    const inputElement = document.createElement('input');
+    inputElement.value = testValue;
+    const event = new Event('input');
+    Object.defineProperty(event, 'target', { value: inputElement });
+
+    const onChangeSpy = jest.spyOn(component, 'onChange');
+    const onTouchedSpy = jest.spyOn(component, 'onTouched');
+
+    component.onInput(event);
+
+    expect(component.value).toBe(testValue);
+    expect(onChangeSpy).toHaveBeenCalledWith(testValue);
+    expect(onTouchedSpy).toHaveBeenCalled();
+  });
 });

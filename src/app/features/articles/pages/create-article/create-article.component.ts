@@ -5,9 +5,10 @@ import { ArticleService } from '@service/article.service';
 import { ToastService } from '@service/toast.service';
 import { CategoryService } from '@service/category.service';
 import { ArticleRequest } from '@model/article-request.model';
-import { BrandResponse, PaginationBrand } from '@model/brand-response.model';
-import { CategoryResponse, PaginationCategory } from '@model/category-response';
+import { BrandResponse } from '@model/brand-response.model';
+import { CategoryResponse } from '@model/category-response';
 import { ToastConst } from '@util/toastConst';
+import { Pagination } from '@model/pagination.model';
 
 @Component({
   selector: 'app-create-article',
@@ -16,8 +17,8 @@ import { ToastConst } from '@util/toastConst';
 })
 export class CreateArticleComponent implements OnInit {
   public createArticleForm: FormGroup;
-  public brands!: PaginationBrand<BrandResponse[]>;
-  public categories!: PaginationCategory<CategoryResponse[]>;
+  public brands!: Pagination<BrandResponse[]>;
+  public categories!: Pagination<CategoryResponse[]>;
   brandSelected: number = 0;
   brandSelectedString: string = '';
   categoriesSelected: number[] = [];

@@ -7,6 +7,7 @@ import { Component,Input, OnInit } from '@angular/core';
 })
 export class NavigationLinkComponent implements OnInit {
   @Input() linkText: string = '';
+  @Input() linkUrl: string = '';
   constructor() { }
 
   ngOnInit(): void {

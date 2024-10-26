@@ -70,16 +70,6 @@ describe('ListBrandsComponent', () => {
     expect(brandServiceMock.getBrands).toHaveBeenCalledWith(1, 5, 'asc');
   });
 
-  it('should change page', () => {
-    component.onPageChange(1);
-    expect(brandServiceMock.getBrands).toHaveBeenCalledWith(1, 5, 'asc');
-  });
-
-  it('should change page', () => {
-    component.onPageChange(1);
-    expect(brandServiceMock.getBrands).toHaveBeenCalledWith(1, 5, 'asc');
-  });
-
   it('should go to next page', () => {
     component.nextPage();
     expect(brandServiceMock.getBrands).toHaveBeenCalledWith(1, 5, 'asc');

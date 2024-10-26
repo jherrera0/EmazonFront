@@ -1,6 +1,7 @@
 import { CategoryService } from '@service/category.service';
 import { Component, OnInit } from '@angular/core';
-import { CategoryResponse, PaginationCategory } from 'src/app/core/model/category-response';
+import { CategoryResponse } from 'src/app/core/model/category-response';
+import { Pagination } from '@model/pagination.model';
 
 @Component({
   selector: 'app-list-categories',
@@ -8,7 +9,7 @@ import { CategoryResponse, PaginationCategory } from 'src/app/core/model/categor
   styleUrls: ['./list-categories.component.scss']
 })
 export class ListCategoriesComponent implements OnInit {
-  categoriesPage: PaginationCategory<CategoryResponse[]> = {
+  categoriesPage: Pagination<CategoryResponse[]> = {
     "currentPage": 0,
     "pageSize": 5,
     "totalPages": 2,
@@ -48,7 +49,7 @@ export class ListCategoriesComponent implements OnInit {
   pages: number[] = [];
   pageSize: number = 5;
   sortDirection: string = 'asc';
-  headers = ["Id","Name","Description"]
+  headers: (keyof CategoryResponse)[]= ["id","name","description"]
 
   constructor(private readonly CategoryService:CategoryService) { }
 

@@ -16,7 +16,7 @@
       <option value="desc">Descending</option>
     </select>
   </div>
-  <app-table [pageData]="brandsPage" [headers]="headers" (onPageChange)="onPageChange($event)"></app-table>
+  <app-table [pageData]="brandsPage" [keys]= "headers" [headers]="headers" (onPageChange)="onPageChange($event)"></app-table>
   <div class="pagination-controls">
     <app-button (click)="previousPage()" [disabled]="brandsPage.currentPage === 0"><<</app-button>
     <div class="listOfPage">

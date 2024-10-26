@@ -1,0 +1,18 @@
+<div class="card">
+  <img src="https://via.placeholder.com/300x200" alt="{{ article.name }}" class="card-img"> <!-- Puedes agregar imágenes reales si tienes -->
+  <div class="card-body">
+    <h3 class="card-title">{{ article.name }}</h3>
+    <p class="card-description">{{ article.description }}</p>
+    <p class="card-brand"><strong>Brand:</strong> {{ article.brand.name }}</p>
+    <p class="card-price"><strong>Price:</strong> {{ article.price | currency }}</p>
+    <p class="card-category">
+      <strong>Category:</strong>
+      <span class="badge" *ngFor="let category of article.categories; let last = last">
+        {{ category.name }}
+      </span>
+    </p>
+    <p class="card-stock" [ngClass]="{'in-stock': article.stock > 0, 'out-of-stock': article.stock === 0}">
+      <strong>Stock:</strong> {{ article.stock > 0 ? article.stock + ' items available' : 'Out of stock' }}
+    </p>
+  </div>
+</div>

@@ -1,6 +1,8 @@
 import { BrandService } from '@service/brand.service';
 import { Component, OnInit } from '@angular/core';
-import { BrandResponse, PaginationBrand } from '@model/brand-response.model';
+import { BrandResponse} from '@model/brand-response.model';
+import { Pagination } from '@model/pagination.model';
+
 
 @Component({
   selector: 'app-list-brands',
@@ -8,11 +10,11 @@ import { BrandResponse, PaginationBrand } from '@model/brand-response.model';
   styleUrls: ['./list-brands.component.scss']
 })
 export class ListBrandsComponent implements OnInit {
-  brandsPage!: PaginationBrand<BrandResponse[]>;
+  brandsPage!: Pagination<BrandResponse[]>;
   pages: number[] = [];
   pageSize: number = 5;
   sortDirection: string = 'asc';
-  headers = ["Id","Name","Description"]
+  headers: (keyof BrandResponse)[] = ["id","name","description"]
 
   constructor(private readonly brandService:BrandService) { }
 

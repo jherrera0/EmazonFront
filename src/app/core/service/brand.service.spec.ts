@@ -1,9 +1,10 @@
+import { Pagination } from '@model/pagination.model';
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { BrandService } from './brand.service';
 import { BrandRequest } from '@model/brand-request.model';
 import { environment } from '@environments/environment';
-import { BrandResponse, PaginationBrand } from '@model/brand-response.model';
+import { BrandResponse} from '@model/brand-response.model';
 
 describe('BrandService', () => {
   let service: BrandService;
@@ -65,7 +66,7 @@ describe('BrandService', () => {
       const page = 1;
       const size = 10;
       const sortDirection = 'asc';
-      const mockResponse: PaginationBrand<BrandResponse[]> = {
+      const mockResponse: Pagination<BrandResponse[]> = {
         items: [{ id: 1, name: 'Test Brand', description: 'Test Description' }],
         currentPage: 1,
         pageSize: 10,

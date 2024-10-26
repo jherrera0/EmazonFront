@@ -5,6 +5,8 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpErrorResponse } from '@angular/common/http';
 import { environment } from '@environments/environment';
 import { ArticleRequest } from '@model/article-request.model';
+import { Pagination } from '@model/pagination.model';
+import { ArticleResponse } from '@model/article-response.model';
 
   describe('ArticleService', () => {
     let service: ArticleService;
@@ -65,4 +67,15 @@ import { ArticleRequest } from '@model/article-request.model';
       const req = httpMock.expectOne(`${environment.stokApi}/article/save`);
       req.flush('Conflict', { status: 409, statusText: 'Conflict' });
     });
+
+    it('should get articles', () => {
+      service.getArticles(1, 10, 'asc', 'name').subscribe((response: Pagination<ArticleResponse[]>) => {
+        expect(response).toBeDefined();
+      });
+
+      const req = httpMock.expectOne(`${environment.stokApi}/article/all?page=1&size=10&sortDirection=asc&sortBy=name`);
+      expect(req.request.method).toBe('GET');
+      req.flush(null);
+    });
+
   });
