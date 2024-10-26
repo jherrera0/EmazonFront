@@ -1,7 +1,6 @@
 @use "/src/styles/stylesReference.scss" as *;
 
 .layout-wrapper {
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto 1fr auto;
