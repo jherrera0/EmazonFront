@@ -14,11 +14,12 @@ export class AuthService {
   constructor(private readonly http:HttpClient) { }
 
   createAuxWarehouse(warehouse: UserRequest): Observable<void> {
+    console.log(warehouse);
     const headers = {
       Authorization: `Bearer ${this.token}`,
       'Content-Type': 'application/json',
     };
-    return this.http.post<void>(`${this.authUrl}/user/save`, warehouse, { headers }).pipe(catchError(this.getError.bind(this)));
+    return this.http.post<void>(`${this.authUrl}/createAssWarehouse`, warehouse, { headers }).pipe(catchError(this.getError.bind(this)));
   }
 
   private getError(error: HttpErrorResponse) {

@@ -34,6 +34,10 @@ const routes: Routes = [
         {
           path: 'list-articles-with-cards',
           loadChildren: () => import('src/app/pages/article/list-articles-with-cards/list-articles-with-cards.module').then(m => m.ListArticlesWithCardsModule)
+        },
+        {
+          path: 'create-aux-warehouse',
+          loadChildren: () => import('src/app/pages/auth/create-aux-warehouse/create-aux-warehouse.module').then(m => m.CreateAuxWarehouseModule)
         }
       ]
     }
