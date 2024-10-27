@@ -14,7 +14,6 @@ export class AuthService {
   constructor(private readonly http:HttpClient) { }
 
   createAuxWarehouse(warehouse: UserRequest): Observable<void> {
-    console.log(warehouse);
     const headers = {
       Authorization: `Bearer ${this.token}`,
       'Content-Type': 'application/json',
@@ -23,7 +22,7 @@ export class AuthService {
   }
 
   private getError(error: HttpErrorResponse) {
-    this.errorMessage = error.error.message;
+    this.errorMessage = error.error;
     return throwError(() => error);
   }
 

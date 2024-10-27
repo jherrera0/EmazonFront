@@ -87,7 +87,6 @@ export class CreateAuxWarehouseComponent implements OnInit {
       email: this.createAuxWarehouseForm.get('auxWarehouseEmail')?.value,
       password: this.createAuxWarehouseForm.get('auxWarehousePassword')?.value
     }
-    console.log(auxWarehouse);
     this.authService.createAuxWarehouse(auxWarehouse).subscribe({
       next: () => {this.toastService.showToast('Auxiliar of warehouse created successfully', ToastConst.SUCCESS);},
       error: () => { this.toastService.showToast(this.authService.getErrorMessage(), ToastConst.ERROR); }
