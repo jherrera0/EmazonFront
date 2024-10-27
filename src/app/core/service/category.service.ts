@@ -35,7 +35,7 @@ export class CategoryService {
   }
 
   private getError(error: HttpErrorResponse) {
-    this.errorMessage = error.error.message;
+    this.errorMessage = error.error;
     return throwError(() => error);
   }
 

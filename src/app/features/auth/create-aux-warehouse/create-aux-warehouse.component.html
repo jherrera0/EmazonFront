@@ -1,0 +1,64 @@
+<div class="container">
+  <h1 class="principal-title poppins-regular">
+    Create a new <span class="principal-title__highlight">Article</span>
+  </h1>
+
+  <form
+  [formGroup] = "createAuxWarehouseForm"
+  (ngSubmit) = "createAuxWarehouse()"
+  class="form">
+    <div class="formElementsContainer">
+      <div class="container-inputs">
+        <label for="Name" type="text" class="infoInput poppins-regular">Name:</label>
+        <app-input-error-handler id="Name" formControlName="auxWarehouseName" [errorMessage]="auxWarehouseNameError"></app-input-error-handler>
+      </div>
+      <div class="container-inputs">
+        <label for="LastName" type="text" class="infoInput poppins-regular">Last Name:</label>
+        <app-input-error-handler id="LastName" formControlName="auxWarehouseLastName" [errorMessage]="auxWarehouseLastNameError"></app-input-error-handler>
+      </div>
+      <div class="container-inputs">
+        <label for="Document" type="text" class="infoInput poppins-regular">Document:</label>
+        <app-input-error-handler id="Document" formControlName="auxWarehouseDocument" [errorMessage]="auxWarehouseDocumentError"></app-input-error-handler>
+      </div>
+      <div class="container-inputs">
+        <label for="PhoneNumber" type="text" class="infoInput poppins-regular">Phone:</label>
+        <app-input-error-handler id="PhoneNumber" formControlName="auxWarehousePhoneNumbre" [errorMessage]="auxWarehousePhoneNumbreError"></app-input-error-handler>
+      </div>
+      <div class="container-inputs">
+        <label for ="birthDate" type="date" class="infoInput poppins-regular">Birth Date:</label>
+        <app-input-error-handler class="selectDate" id="BirthDatePicker" type ="date" [max] ="maxDate" formControlName="auxWarehouseBirthdate" [errorMessage]="auxWarehouseBirthdateError"></app-input-error-handler>
+      </div>
+      <div class="container-inputs">
+        <label for="Email" type="email" class="infoInput poppins-regular">Email:</label>
+        <app-input-error-handler id="houseEmail" formControlName="auxWarehouseEmail" [errorMessage]="auxWarehouseEmailError"></app-input-error-handler>
+      </div>
+      <div class="container-input-password">
+        <div>
+          <label for="Password" type="password" class="infoInput poppins-regular">Password:</label>
+          <app-input-error-handler id="Password" [type]="hidePassword ? 'password' : 'text'" formControlName="auxWarehousePassword" [errorMessage]="auxWarehousePasswordError"></app-input-error-handler>
+        </div>
+        <div class="container-eye">
+          <button type="button" class="toggle-password" (click)="showPassword()">
+            <img
+              *ngIf="hidePassword"
+              src="https://img.icons8.com/?size=100&id=33916&format=png&color=000000"
+              alt="eye-closed"
+              class="password-icon"
+            />
+            <img
+              *ngIf="!hidePassword"
+              src="https://img.icons8.com/?size=100&id=986&format=png&color=000000"
+              alt="eye-open"
+              class="password-icon"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class = "container-button">
+      <app-button [disabled] = "isButtonDisabled()">Create Aux of warehouse</app-button>
+    </div>
+
+  </form>
+</div>

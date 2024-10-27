@@ -1,0 +1,94 @@
+@use '/src/styles/stylesReference.scss' as *;
+
+.container {
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5%;
+
+  .principal-title {
+    text-align: center;
+    margin-bottom: 10%;
+
+    .principal-title__highlight {
+      color: $purple;
+    }
+  }
+
+  .form {
+    width: 100%;
+    max-width: 50vw;
+    align-items: center;
+
+    .container-inputs,
+    .select-container {
+      display: grid;
+      width: 100%;
+    }
+
+    .container-button {
+      display: flex;
+      justify-content: center;
+      margin-top: 10%;
+    }
+
+    .container-input-password {
+      display: flex;
+      flex-direction: row;
+      .container-eye{
+        margin-bottom: 15%;
+        display: grid;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+      .toggle-password{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+
+      .password-icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+
+  }
+
+  @media (max-width: 767px) {
+    .form {
+      flex: auto;
+      .container-inputs,
+      .select-container {
+        margin-bottom: 30%;
+      }
+    }
+
+  }
+
+  @media (min-width: 768px) {
+    .form {
+      .formElementsContainer{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .container-input-password {
+        .container-eye{
+          margin-bottom: 16%;
+        }
+      }
+      .container-inputs,
+      .select-container {
+        margin-bottom: 0;
+      }
+
+      .container-button {
+        grid-column: span 2;
+      }
+    }
+  }
+}

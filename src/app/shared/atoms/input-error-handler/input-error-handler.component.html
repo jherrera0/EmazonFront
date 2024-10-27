@@ -6,6 +6,7 @@
     class="input poppins-regular"
     [type]="type"
     placeholder="Text"
+    [attr.max] = "max"
   />
   <div class="error-message poppins-regular" *ngIf="errorMessage">
     {{ errorMessage }}
