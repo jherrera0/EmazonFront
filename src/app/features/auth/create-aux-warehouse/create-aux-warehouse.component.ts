@@ -40,7 +40,7 @@ export class CreateAuxWarehouseComponent implements OnInit {
           Validators.required,
           Validators.pattern(/^\d+$/)
         ]],
-      auxWarehousePhoneNumbre: [
+      auxWarehousePhoneNumber: [
         '',
       [
         Validators.required,
@@ -82,7 +82,7 @@ export class CreateAuxWarehouseComponent implements OnInit {
       name: this.createAuxWarehouseForm.get('auxWarehouseName')?.value,
       lastName: this.createAuxWarehouseForm.get('auxWarehouseLastName')?.value,
       document: this.createAuxWarehouseForm.get('auxWarehouseDocument')?.value,
-      phone: this.createAuxWarehouseForm.get('auxWarehousePhoneNumbre')?.value,
+      phone: this.createAuxWarehouseForm.get('auxWarehousePhoneNumber')?.value,
       birthDate: this.createAuxWarehouseForm.get('auxWarehouseBirthdate')?.value,
       email: this.createAuxWarehouseForm.get('auxWarehouseEmail')?.value,
       password: this.createAuxWarehouseForm.get('auxWarehousePassword')?.value
@@ -137,7 +137,7 @@ export class CreateAuxWarehouseComponent implements OnInit {
   }
 
   get auxWarehousePhoneNumbreError(){
-    const control = this.createAuxWarehouseForm.get('auxWarehousePhoneNumbre');
+    const control = this.createAuxWarehouseForm.get('auxWarehousePhoneNumber');
     if (control?.hasError('required')){
       return 'The phone number is required';
     }
